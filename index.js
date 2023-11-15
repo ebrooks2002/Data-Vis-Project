@@ -1,8 +1,6 @@
-import {Scrubber} from "@mbostock/scrubber"
-d3 = require('d3@7');
 
-var nytdata = FileAttachment("nyt-metadata-sample.csv");
-var metadata = d3.csvParse(await nytdata.text());
+var nytdata = d3.csv("nyt-metadata-sample.csv");
+var metadata = d3.csvParse(nytdata.text());
 var h = d3.extent(metadata, d => d.pub_date_year)
 var years = h.map(Number)
 var dataInitial = metaData.filter(d => d.pub_date_year == yearFilter)
@@ -40,7 +38,7 @@ var yearFilter = Scrubber(
     .attr('transform', `translate(${margin.left}, 0)`)
     .call(d3.axisLeft(y));
 
-  const yearLabel = svg.append('text')
+yearLabel = svg.append('text')
     .attr('class', 'year')
     .attr('x', width - margin.left*6)
     .attr('y', margin.bottom)
@@ -50,7 +48,7 @@ var yearFilter = Scrubber(
     .attr('font-size', 80)
     .text(yearFilter);
 
-  const articles = svg
+ articles = svg
     .selectAll('bar')
     .data(articleCountsArray)
     .enter().append("rect")
@@ -61,7 +59,7 @@ var yearFilter = Scrubber(
     .attr("height", (d) => height - y(d.count))
     .attr("fill", (d) => color(d.section_name));
 
-const barGroups = svg.selectAll('.bar-group')
+barGroups = svg.selectAll('.bar-group')
   .data(articleCountsArray)
   .enter().append('g')
     .attr('class', 'bar-group');
@@ -76,7 +74,7 @@ barGroups.append('rect')
   .attr('fill', d => color(d.section_name));
 
 // Append text elements that will be used as tooltips, but hide them initially
-const tooltips = barGroups.append('text')
+tooltips = barGroups.append('text')
   .text(d => `${d.section_name}: ${d.count}`)
   .attr('x', d => x(d.section_name) + margin.left + x.bandwidth() / 2)
   .attr('y', d => y(d.count) - 150)
@@ -95,4 +93,4 @@ barGroups
     d3.select(this).select('text').style('visibility', 'hidden');
   });
 
-  return svg.node();
+console.log('hello world')
