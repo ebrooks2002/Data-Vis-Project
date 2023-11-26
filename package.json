@@ -1,0 +1,21 @@
+{
+  "name": "data-vis-project",
+  "version": "1.0.0",
+  "description": "Visulizations to see how current events are reflected in NYT articles.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "Data-Vis-Project"
+  },
+  "keywords": [
+    "None"
+  ],
+  "author": "Ethan Brooks and Tamur Asar",
+  "license": "ISC",
+  "dependencies": {
+    "fullpage.js": "^4.0.20"
+  }
+}
