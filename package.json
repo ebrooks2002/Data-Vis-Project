@@ -16,6 +16,7 @@
   "author": "Ethan Brooks and Tamur Asar",
   "license": "ISC",
   "dependencies": {
-    "fullpage.js": "^4.0.20"
+    "fullpage.js": "^4.0.20",
+    "live-server": "^1.2.2"
   }
 }
