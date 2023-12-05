@@ -2,6 +2,7 @@ import nltk
 import csv
 import sys
 import random
+import pandas as pd
 from nltk.sentiment import SentimentIntensityAnalyzer
 
 # download VADER
@@ -14,26 +15,28 @@ sia = SentimentIntensityAnalyzer()
 csv.field_size_limit(sys.maxsize)
 # this is where you read the articles' abstracts
 news_articles = []
-with open('articles-abstracts.csv', newline='') as csvfile:
+with open('nyt-metadata-ready.csv', newline='', mode='r') as csvfile:
     reader = csv.reader(csvfile)
-    for row in reader:
-        news_articles.append(row[0])
+    rows = list(reader)
 
-# randomly shuffly array so first x are different every time
-random.shuffle(news_articles)
+def calculate_new_column_value(row):
+    sentiment_score = sia.polarity_scores(row[1])
+    if sentiment_score:
+        # determine sentiment based on compound score
+        if sentiment_score['compound'] >= 0.05:
+            return "Sentiment: Positive"
+        elif sentiment_score['compound'] <= -0.05:
+            return "Sentiment: Negative"
+        else:
+            return "Sentiment: Neutral"
+  
+header_row = rows[0]
+header_row.append('Sentiment')
 
-# print(news_articles[:3])
+for row in rows[1:]:
+    new_val = calculate_new_column_value(row)
+    row.append(new_val)
 
-# sentiment analysis stuff
-for article in news_articles[:3]:  # change the 3 to however many articles you want to analyze
-    sentiment_scores = sia.polarity_scores(article)
-    print(f"Article: '{article}'")
-    print(f"Sentiment Scores: {sentiment_scores}")
-    # determine the sentiment based on compound score
-    if sentiment_scores['compound'] >= 0.05:
-        print("Sentiment: Positive")
-    elif sentiment_scores['compound'] <= -0.05:
-        print("Sentiment: Negative")
-    else:
-        print("Sentiment: Neutral")
-    print("-------------------------------------------")
+with open('nyt-metadata-ready.csv', mode='w', newline='') as file:
+    writer = csv.writer(file)
+    writer.writerows(rows)
