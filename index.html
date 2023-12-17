@@ -5,7 +5,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Investigating Trends in NYT Articles</title>
-    <script src="http://d3js.org/d3.v7.min.js"></script>
     <link rel="stylesheet" href="styles.css">
 </head>
 
@@ -16,19 +15,85 @@
         </h1>
     </div>
 
-    <iframe width="100%" height="734.578125" frameborder="0"
-        src="https://observablehq.com/embed/e6109f052a91dc55@618?cells=viewof+yearFilter%2Cinteractive_bar_chart"></iframe>
-    <!--INDEX.JS-->
-    <script type="module" src="index.js"></script>
+    <div style="display: flex; align-items: center;">
+        <iframe width="75%" height="734.578125" frameborder="0"
+            src="https://observablehq.com/embed/e6109f052a91dc55@618?cells=viewof+yearFilter%2Cinteractive_bar_chart"></iframe>
+        <p style="margin-left: 20px;">text goes here</p>
+    </div>
+
+    <div class="tableauPlaceholder" id="viz1702596611276" style="position: relative; display: flex; align-items:center">
+        <noscript>
+            <a href="#">
+                <img alt="Keyword Growth Breakdown "
+                    src="https://public.tableau.com/static/images/NY/NYTsKeywordGrowthTreeMap/Sheet1/1_rss.png"
+                    style="border: none" />
+            </a>
+        </noscript>
+        <object class="tableauViz" style="display:none;">
+            <param name="host_url" value="https%3A%2F%2Fpublic.tableau.com%2F" />
+            <param name="embed_code_version" value="3" />
+            <param name="site_root" value="" />
+            <param name="name" value="NYTsKeywordGrowthTreeMap/Sheet1" />
+            <param name="tabs" value="no" />
+            <param name="toolbar" value="yes" />
+            <param name="static_image"
+                value="https://public.tableau.com/static/images/NY/NYTsKeywordGrowthTreeMap/Sheet1/1.png" />
+            <param name="animate_transition" value="yes" />
+            <param name="display_static_image" value="yes" />
+            <param name="display_spinner" value="yes" />
+            <param name="display_overlay" value="yes" />
+            <param name="display_count" value="yes" />
+            <param name="language" value="en-US" />
+        </object>
+    </div>
+    <script type="text/javascript"> var divElement = document.getElementById("viz1702596611276"); var vizElement = divElement.getElementsByTagName("object")[0]; vizElement.style.width = "75%"; vizElement.style.height = (divElement.offsetWidth * 0.5) + "px"; var scriptElement = document.createElement("script"); scriptElement.src = "https://public.tableau.com/javascripts/api/viz_v1.js"; vizElement.parentNode.insertBefore(scriptElement, vizElement);
+    </script>
+
+    <div class="tableauPlaceholder" id="viz1702783604705" style="position: relative"><noscript><a href="#"><img
+                    alt="Sheet 1 "
+                    src="https://public.tableau.com/static/images/Se/SentimentTrends_17027834242470/Sheet1/1_rss.png"
+                    style="border: none" /></a></noscript><object class="tableauViz" style="display:none;">
+            <param name="host_url" value="https%3A%2F%2Fpublic.tableau.com%2F" />
+            <param name="embed_code_version" value="3" />
+            <param name="site_root" value="" />
+            <param name="name" value="SentimentTrends_17027834242470/Sheet1" />
+            <param name="tabs" value="no" />
+            <param name="toolbar" value="yes" />
+            <param name="static_image"
+                value="https://public.tableau.com/static/images/Se/SentimentTrends_17027834242470/Sheet1/1.png" />
+            <param name="animate_transition" value="yes" />
+            <param name="display_static_image" value="yes" />
+            <param name="display_spinner" value="yes" />
+            <param name="display_overlay" value="yes" />
+            <param name="display_count" value="yes" />
+            <param name="language" value="en-US" />
+        </object></div>
+    <script type="text/javascript"> var divElement = document.getElementById("viz1702783604705"); var vizElement = divElement.getElementsByTagName("object")[0]; vizElement.style.width = "75%"; vizElement.style.height = (divElement.offsetWidth * 0.5) + "px"; var scriptElement = document.createElement("script"); scriptElement.src = "https://public.tableau.com/javascripts/api/viz_v1.js"; vizElement.parentNode.insertBefore(scriptElement, vizElement);
+    </script>
+
+    <div class="tableauPlaceholder" id="viz1702849659685" style="position: relative"><noscript><a href="#"><img
+                    alt="Overall Sentiment of Articles in Each News Category, Year Over Year - 2005 "
+                    src="https://public.tableau.com/static/images/Ov/OverallSentimentofArticlesinEachNewsCategoryYearOverYear/Sheet1/1_rss.png"
+                    style="border: none" /></a></noscript><object class="tableauViz" style="display:none;">
+            <param name="host_url" value="https%3A%2F%2Fpublic.tableau.com%2F" />
+            <param name="embed_code_version" value="3" />
+            <param name="site_root" value="" />
+            <param name="name" value="OverallSentimentofArticlesinEachNewsCategoryYearOverYear/Sheet1" />
+            <param name="tabs" value="no" />
+            <param name="toolbar" value="yes" />
+            <param name="static_image"
+                value="https://public.tableau.com/static/images/Ov/OverallSentimentofArticlesinEachNewsCategoryYearOverYear/Sheet1/1.png" />
+            <param name="animate_transition" value="yes" />
+            <param name="display_static_image" value="yes" />
+            <param name="display_spinner" value="yes" />
+            <param name="display_overlay" value="yes" />
+            <param name="display_count" value="yes" />
+            <param name="language" value="en-US" />
+        </object></div>
+    <script type="text/javascript"> var divElement = document.getElementById("viz1702849659685"); var vizElement = divElement.getElementsByTagName("object")[0]; vizElement.style.width = "75%"; vizElement.style.height = (divElement.offsetWidth * 0.5) + "px"; var scriptElement = document.createElement("script"); scriptElement.src = "https://public.tableau.com/javascripts/api/viz_v1.js"; vizElement.parentNode.insertBefore(scriptElement, vizElement);
+    </script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 </body>
-
-<body>
-    <div class='tableauPlaceholder' id='viz1702596611276' style='position: relative'><noscript><a href='#'><img alt='Keyword Growth Breakdown ' src='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;NY&#47;NYTsKeywordGrowthTreeMap&#47;Sheet1&#47;1_rss.png' style='border: none' /></a></noscript><object class='tableauViz'  style='display:none;'><param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' /> <param name='embed_code_version' value='3' /> <param name='site_root' value='' /><param name='name' value='NYTsKeywordGrowthTreeMap&#47;Sheet1' /><param name='tabs' value='no' /><param name='toolbar' value='yes' /><param name='static_image' value='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;NY&#47;NYTsKeywordGrowthTreeMap&#47;Sheet1&#47;1.png' /> <param name='animate_transition' value='yes' /><param name='display_static_image' value='yes' /><param name='display_spinner' value='yes' /><param name='display_overlay' value='yes' /><param name='display_count' value='yes' /><param name='language' value='en-US' /></object></div>                <script type='text/javascript'>                    var divElement = document.getElementById('viz1702596611276');                    var vizElement = divElement.getElementsByTagName('object')[0];                    vizElement.style.width='100%';vizElement.style.height=(divElement.offsetWidth*0.75)+'px';                    var scriptElement = document.createElement('script');                    scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';                    vizElement.parentNode.insertBefore(scriptElement, vizElement);                </script>
-    <div class='tableauPlaceholder' id='viz1702783604705' style='position: relative'><noscript><a href='#'><img alt='Sheet 1 ' src='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;Se&#47;SentimentTrends_17027834242470&#47;Sheet1&#47;1_rss.png' style='border: none' /></a></noscript><object class='tableauViz'  style='display:none;'><param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' /> <param name='embed_code_version' value='3' /> <param name='site_root' value='' /><param name='name' value='SentimentTrends_17027834242470&#47;Sheet1' /><param name='tabs' value='no' /><param name='toolbar' value='yes' /><param name='static_image' value='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;Se&#47;SentimentTrends_17027834242470&#47;Sheet1&#47;1.png' /> <param name='animate_transition' value='yes' /><param name='display_static_image' value='yes' /><param name='display_spinner' value='yes' /><param name='display_overlay' value='yes' /><param name='display_count' value='yes' /><param name='language' value='en-US' /></object></div>                <script type='text/javascript'>                    var divElement = document.getElementById('viz1702783604705');                    var vizElement = divElement.getElementsByTagName('object')[0];                    vizElement.style.width='100%';vizElement.style.height=(divElement.offsetWidth*0.75)+'px';                    var scriptElement = document.createElement('script');                    scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';                    vizElement.parentNode.insertBefore(scriptElement, vizElement);                </script>
-</body> 
-
-
-
-
 
 </html>

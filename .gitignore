@@ -30,3 +30,5 @@ folder_to_ignore/*
 
 # ingore large files
 articles-abstracts.csv
+
+.venv
