@@ -14,8 +14,9 @@
             Investigating Trends In <span class="chomsky-font">The New York Times</span> Through Visualization
         </h1>
         <h2 class="text-center">Ethan Brooks and Tamur Asar</h2>
-        <p style="text-indent: 40px; font-family: Ar">The following visualizations were constructed using a collection of over <a
-                href="https://www.kaggle.com/datasets/aryansingh0909/nyt-articles-21m-2000-present" target="_blank">two
+        <p style="text-indent: 40px; font-family: Ar">The following visualizations were constructed using a collection
+            of over <a href="https://www.kaggle.com/datasets/aryansingh0909/nyt-articles-21m-2000-present"
+                target="_blank">two
                 million New York Times articles.</a>
             The visualizations aim to illustrate common pattens and trends, be that cultural or semantic, that
             subliminaly exist
@@ -25,11 +26,15 @@
             different time periods.
         </p>
     </div>
+    <hr>
 
+    <h2>
+        Which New York Times sections produce the most news?
+    </h2>
     <div class='tableauPlaceholder' id='viz1702860707636' style='position: relative'><noscript><a href='#'><img
-                alt='Breakdown by Section in 2000 '
-                src='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;Se&#47;SectionTreeMap&#47;Sheet1&#47;1_rss.png'
-                style='border: none' /></a></noscript><object class='tableauViz' style='display:none;'>
+                    alt='Breakdown by Section in 2000 '
+                    src='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;Se&#47;SectionTreeMap&#47;Sheet1&#47;1_rss.png'
+                    style='border: none' /></a></noscript><object class='tableauViz' style='display:none;'>
             <param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' />
             <param name='embed_code_version' value='3' />
             <param name='site_root' value='' />
@@ -47,10 +52,20 @@
         </object></div>
     <script
         type='text/javascript'>                    var divElement = document.getElementById('viz1702860707636'); var vizElement = divElement.getElementsByTagName('object')[0]; vizElement.style.width = '90%'; vizElement.style.height = (divElement.offsetWidth * 0.40) + 'px'; var scriptElement = document.createElement('script'); scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js'; vizElement.parentNode.insertBefore(scriptElement, vizElement);                </script>
-    <p style="font-size: 19px; font-family: Arial;">The visualation above, called a Tree Map, shows the breakdown of published articles by section for a given year. We decided to use a Tree Map because it
-        is effect at conveying how indiviudal sections contribute to the total volume of published articles. By interacting with the year slider, users can explore trends over time. For example, they might discover growth in technology-related articles with the rise of the internet and digital culture. They might also discover the New York Section was common during the post 9/11 period, that the Business Day section rose during the 2007 financial crisis, and that the World section rose during 2003 Iraq War. Viewers may also notice that some sections hold a relatively constant percent makeup of total articles published, while others fluctuate greatly year to year. </p>
+    <p style="font-size: 19px; font-family: Arial;">The visualation above, called a Tree Map, shows the breakdown of
+        published articles by section for a given year. We decided to use a Tree Map because it
+        is effect at conveying how indiviudal sections contribute to the total volume of published articles. By
+        interacting with the year slider, users can explore trends over time. For example, they might discover growth in
+        technology-related articles with the rise of the internet and digital culture. They might also discover the New
+        York Section was common during the post 9/11 period, that the Business Day section rose during the 2007
+        financial crisis, and that the World section rose during 2003 Iraq War. Viewers may also notice that some
+        sections hold a relatively constant percent makeup of total articles published, while others fluctuate greatly
+        year to year. </p>
     <hr>
 
+    <h2>
+        What were the the most common words of each year?
+    </h2>
     <div class="tableauPlaceholder" id="viz1702596611276" style="position: relative;">
         <noscript>
             <a href="#">
@@ -76,9 +91,24 @@
             <param name="language" value="en-US" />
         </object>
     </div>
-    <p style="font-size: 19px; font-family: Arial"> The visualization above shows for each year the top ten largest growing keywords from the previous year. We decided on a bubble chart because it allows users to visualize the growth of top keywords and compare them relative to others. The size of each bubble indicates the magnitude of growth, making it easy to identify which topics have gained the most traction. As one might expect, in 2001, the keywords 'New York City' and 'Terrorism' grew significantly from the previous year, reflecting the impact of the September 11th attacks on public consciousness and media coverage. In 2003, we see the prominence of keywords like 'Iraq', 'United States International Relations', and 'Housing', coinciding with the Iraq War and the focus on real estate that foreshadowed the coming housing market crisis. In 2008, 'Barack Obama' and 'United States Economy' surge in frequency, corresponding to Obama's election campaign and the global financial crisis. This visualization not only highlights the dynamic nature of news topics but also reflects historical events and shifts in public interest over time. </p>
+    <p style="font-size: 19px; font-family: Arial"> "Hot topic" words can give us insights into the current events
+        within a given year. The visualization above shows for each year the top ten largest growing keywords from the
+        previous year. We decided on a bubble chart because it allows users to visualize the growth of top keywords and
+        compare them relative to others. The size of each bubble indicates the magnitude of growth, making it easy to
+        identify which topics have gained the most traction. As one might expect, in 2001, the keywords 'New York City'
+        and 'Terrorism' grew significantly from the previous year, reflecting the impact of the September 11th attacks
+        on public consciousness and media coverage. In 2003, we see the prominence of keywords like 'Iraq', 'United
+        States International Relations', and 'Housing', coinciding with the Iraq War and the focus on real estate that
+        foreshadowed the coming housing market crisis. In 2008, 'Barack Obama' and 'United States Economy' surge in
+        frequency, corresponding to Obama's election campaign and the global financial crisis. This visualization not
+        only highlights the dynamic nature of news topics but also reflects historical events and shifts in public
+        interest over time. </p>
     <hr>
 
+    <h2>
+        Current events shape our news landscape - How do topical news events shift the tone of articles across different
+        sectors of news?
+    </h2>
     <div class='tableauPlaceholder' id='viz1702875274262' style='position: relative'><noscript><a href='#'><img
                     alt='Sentiment Trends  by Section '
                     src='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;Se&#47;SentimentTrends_17027834242470&#47;Sheet1&#47;1_rss.png'
@@ -100,12 +130,22 @@
         </object></div>
     <script
         type='text/javascript'>                    var divElement = document.getElementById('viz1702875274262'); var vizElement = divElement.getElementsByTagName('object')[0]; vizElement.style.width = '100%'; vizElement.style.height = (divElement.offsetWidth * 0.75) + 'px'; var scriptElement = document.createElement('script'); scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js'; vizElement.parentNode.insertBefore(scriptElement, vizElement);                </script>
-    <p style="font-size: 19px; font-family: Arial"> This visualization traces sentiment trends in The New York Times articles, allowing users to witness how news sentiments have evolved from 1999 to 2011. Key historical events stand out, with noticeable shifts in tone—negative sentiments peak during the September 11th attacks and the Iraq War, while economic sections reflect unease during the 2007-08 financial crisis. The line graph's clear, temporal layout and interactivity—permitting users to filter by news section—make it an effective tool for analyzing the interplay between major events and media tone. It highlights the influence of societal and global happenings on journalistic sentiment, providing insights into the emotional undertones that underpin the news narrative of the era.
+    <p style="font-size: 19px; font-family: Arial"> This visualization traces sentiment trends in The New York Times
+        articles, allowing users to witness how news sentiments have evolved from 1999 to 2011. Key historical events
+        stand out, with noticeable shifts in tone—negative sentiments peak during the September 11th attacks and the
+        Iraq War, while economic sections reflect unease during the 2007-08 financial crisis. The line graph's clear,
+        temporal layout and interactivity—permitting users to filter by news section—make it an effective tool for
+        analyzing the interplay between major events and media tone. It highlights the influence of societal and global
+        happenings on journalistic sentiment, providing insights into the emotional undertones that underpin the news
+        narrative of the era.
 
     </p>
     <hr>
 
-
+    <h2>
+        Which categories lean towards being the most negative?
+        The most positive?
+    </h2>
     <div class="tableauPlaceholder" id="viz1702849659685" style="position: relative"><noscript><a href="#"><img
                     alt="Overall Sentiment of Articles in Each News Category, Year Over Year - 2005 "
                     src="https://public.tableau.com/static/images/Ov/OverallSentimentofArticlesinEachNewsCategoryYearOverYear/Sheet1/1_rss.png"
@@ -124,14 +164,15 @@
             <param name="display_overlay" value="yes" />
             <param name="display_count" value="yes" />
             <param name="language" value="en-US" />
-        </object>           
+        </object>
     </div>
     <p style="font-size: 19px; font-family: Arial">
         This visualization once again utilized our sentiment classifying tool to perform an analysis on the percentage
         of news articles
         released in a given year that can be classified as positive, neutral or negative. These calculations are then
         visualized and stacked
-        in this bar chart for comparative analysis. Immediately you can recognize a trend in some of the bars. Perhaps
+        in this bar chart for straightforward comparative analysis. Immediately you can recognize a trend in some of the
+        bars. Perhaps
         most insightful is the
         the category for "World". Between 2000 and 2010, the category for World never has an overall negative sentiment
         quantifier
