@@ -1,5 +1,7 @@
 # COMP 435 Data Visualization Final Project
 
+To see our project, visit: https://ebrooks2002.github.io/Data-Vis-Project/
+
 # Reason for Choosing this Topic:
 The New York Times is the second largest grossing news source in the United States while being one of the most highly regarded and recognized news organizations in the world. News has an interesting relationship to the consumer where it both defines and follows trends in society. Take for example the current Israel and Palestine conflict. Without news, the war would not be discussed as it is currently. On the other hand, social identities like the Kardashians only remain relevant because of continued public interest in the subject. Identifying patterns in NYT articles can provide insight into societal shifts and cultural changes over time. It can also provide insight into how media and journalism has developed through the 21st century.
 
@@ -12,4 +14,3 @@ The second pattern we aim to identify is the popularity of certain topics over t
 
 We also aim to run sentiment analysis on each article’s abstract, assigning the article one of three tones: positive, negative or neutral. This will help us answer: Can we see the overall tone of NYT articles change according to the positivity of current events? If time permits, do people prefer to comment on positive, negative or neutral articles?
 
-To see our project go to: https://ebrooks2002.github.io/Data-Vis-Project/
