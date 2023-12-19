@@ -12,4 +12,4 @@ The second pattern we aim to identify is the popularity of certain topics over t
 
 We also aim to run sentiment analysis on each article’s abstract, assigning the article one of three tones: positive, negative or neutral. This will help us answer: Can we see the overall tone of NYT articles change according to the positivity of current events? If time permits, do people prefer to comment on positive, negative or neutral articles?
 
-
+To see our project go to: https://ebrooks2002.github.io/Data-Vis-Project/
