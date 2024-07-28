@@ -1,32 +1,64 @@
-@font-face {
-  font-family: 'Chomsky';
-  src: url('fonts/chomsky-webfont.woff2') format('woff2'),
-       url('fonts/chomsky-webfont.woff') format('woff');
-  font-weight: normal;
-  font-style: normal;
-}
-
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap');
 
 body {
-  font-family: 'Times New Roman', Times, serif;
+    font-family: 'Roboto', Arial, sans-serif;
+    background-color: #f5f5f5;
+    color: #333;
+    margin: 0;
+    padding: 0;
 }
 
-.chomsky-font {
-  font-family: 'Chomsky', sans-serif;
+header {
+    background-color: #004d99;
+    color: white;
+    padding: 20px 0;
+    text-align: center;
 }
 
-h1 {
-  font-size: 3rem;
+h1, h2 {
+    margin: 0;
 }
 
-h2 {
+.section {
+    background-color: white;
+    margin: 20px 0;
+    padding: 40px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.paragraph-container {
+    font-size: 1.2rem;
+    line-height: 1.6;
+    max-width: 800px;
+    margin: 20px auto;
+    text-align: left;
+}
+
+.section h2 {
   font-size: 2rem;
+  margin-bottom: 20px;
 }
 
-.text-center {
-  text-align: center;
+.section p {
+  font-size: 1.1rem;
+  margin: 0 0 20px;
 }
 
-p {
-  font-size: 25px;
+a {
+  color: #004d99;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* Add transitions */
+.section {
+  transition: transform 0.3s ease-in-out;
+}
+
+.section:hover {
+  transform: translateY(-10px);
 }
