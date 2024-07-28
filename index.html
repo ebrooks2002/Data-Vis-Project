@@ -13,80 +13,83 @@
     <div id="fullpage">
         <div class="section" id="intro" style="text-align: center; padding: 50px 20px;">
             <header>
-                <h1>Investigating Trends In The New York Times Through Visualization</h1>
+                <h1>Investigating Trends in <i>The New York Times Through</i> Visualization</h1>
                 <h2>By Ethan Brooks and Tamur Asar</h2>
             </header>
             <p class='paragraph-container'style="text-align: center;">The following visualizations were constructed using a collection
-                of over <a href="https://www.kaggle.com/datasets/aryansingh0909/nyt-articles-21m-2000-present"target="_blank">two million New York Times articles.</a> The visualizations aim to illustrate common pattens and trends,
-                be that cultural or semantic, that subliminaly exist and/or are intentionally constructed by The New York
-                Times. While we do not have comprehensive datasets for other news agencies to compare to, we aim to
-                extrapolate our findings as an explanation to broader trends that morph news during different time periods.
+                of over <a href="https://www.kaggle.com/datasets/aryansingh0909/nyt-articles-21m-2000-present"target="_blank">two million New York Times articles.</a> They aim to illustrate common patterns,
+                be that cultural or semantic, that exist in NYT articles. While we do not have comprehensive datasets for other news agencies to compare to, we aim to
+                extrapolate our findings as an explanation to broader news trends.
             </p>
         </div>
 
         <div class="section">
-            <h2>Which New York Times sections produce the most news?</h2>
-            <div class='tableauPlaceholder' id='viz1702860707636' style='position: relative'>
-                <noscript><a href='#'><img alt='Breakdown by Section in 2000 '
-                            src='https://public.tableau.com/static/images/Se/SectionTreeMap/Sheet1/1_rss.png'
-                            style='border: none' /></a></noscript>
-                <object class='tableauViz' style='display:none;'>
-                    <param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' />
-                    <param name='embed_code_version' value='3' />
-                    <param name='site_root' value='' />
-                    <param name='name' value='SectionTreeMap/Sheet1' />
-                    <param name='tabs' value='no' />
-                    <param name='toolbar' value='yes' />
-                    <param name='static_image'
-                        value='https://public.tableau.com/static/images/Se/SectionTreeMap/Sheet1/1.png' />
-                    <param name='animate_transition' value='yes' />
-                    <param name='display_static_image' value='yes' />
-                    <param name='display_spinner' value='yes' />
-                    <param name='display_overlay' value='yes' />
-                    <param name='display_count' value='yes' />
-                    <param name='language' value='en-US' />
-                </object>
-            </div>
-            <p style="font-size: 19px; font-family: Arial;">The visualation above, called a Tree Map, shows the breakdown
-                of published articles by section for a given year. We decided to use a Tree Map because it
-                is effect at conveying how indiviudal sections contribute to the total volume of published articles. By
+            <h2 style="position: relative; top: -20px;  text-align: center;"> Which New York Times sections produce the most news?</h2>
+            <div class="tableau-paragraph-container"> 
+                <div class="tableauPlaceholder" id='viz1702860707636' style='position: relative'>
+                    <noscript><a href='#'><img alt='Breakdown by Section in 2000 '
+                                src='https://public.tableau.com/static/images/Se/SectionTreeMap/Sheet1/1_rss.png'
+                                style='border: none' /></a></noscript>
+                    <object class='tableauViz' style='display:none;'>
+                        <param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' />
+                        <param name='embed_code_version' value='3' />
+                        <param name='site_root' value='' />
+                        <param name='name' value='SectionTreeMap/Sheet1' />
+                        <param name='tabs' value='no' />
+                        <param name='toolbar' value='yes' />
+                        <param name='static_image'
+                            value='https://public.tableau.com/static/images/Se/SectionTreeMap/Sheet1/1.png' />
+                        <param name='animate_transition' value='yes' />
+                        <param name='display_static_image' value='yes' />
+                        <param name='display_spinner' value='yes' />
+                        <param name='display_overlay' value='yes' />
+                        <param name='display_count' value='yes' />
+                        <param name='language' value='en-US' />
+                    </object>
+                </div>
+            <p style="font-size: 16px; font-family: Arial;">This visualization, called a Tree Map, shows the breakdown
+                of published articles by section for a given year. Treemaps
+                effective at conveying how indiviudal sections contribute to the total volume of published articles. By
                 interacting with the year slider, users can explore trends over time. For example, they might discover
                 growth in technology-related articles with the rise of the internet and digital culture. They might also
                 discover the New York Section was common during the post 9/11 period, that the Business Day section rose
                 during the 2007 financial crisis, and that the World section rose during 2003 Iraq War. Viewers may also
                 notice that some sections hold a relatively constant percent makeup of total articles published, while
-                others fluctuate greatly year to year. </p>
+                others fluctuate greatly year to year. 
+                </p>
+            </div>
         </div>
 
         <div class="section">
-            <h2>What were the the most common words of each year?</h2>
-            <div class="tableauPlaceholder" id="viz1702596611276" style="position: relative;">
-                <noscript>
-                    <a href="#">
-                        <img alt="Keyword Growth Breakdown "
-                            src="https://public.tableau.com/static/images/NY/NYTsKeywordGrowthTreeMap/Sheet1/1_rss.png"
-                            style="border: none" />
-                    </a>
-                </noscript>
-                <object class="tableauViz" style="display:none;">
-                    <param name="host_url" value="https%3A%2F%2Fpublic.tableau.com%2F" />
-                    <param name="embed_code_version" value="3" />
-                    <param name="site_root" value="" />
-                    <param name="name" value="NYTsKeywordGrowthTreeMap/Sheet1" />
-                    <param name="tabs" value="no" />
-                    <param name="toolbar" value="yes" />
-                    <param name="static_image"
-                        value="https://public.tableau.com/static/images/NY/NYTsKeywordGrowthTreeMap/Sheet1/1.png" />
-                    <param name="animate_transition" value="yes" />
-                    <param name="display_static_image" value="yes" />
-                    <param name="display_spinner" value="yes" />
-                    <param name="display_overlay" value="yes" />
-                    <param name="display_count" value="yes" />
-                    <param name="language" value="en-US" />
-                </object>
-            </div>
-            <p style="font-size: 19px; font-family: Arial"> "Hot topic" words can give us insights into the current events
-                within a given year. The visualization above shows for each year the top ten largest growing keywords from
+            <h2 style="position: relative; top: -20px;  text-align: center;">What were the the most common words of each year?</h2>
+            <div class="tableau-paragraph-container"> 
+                <div class="tableauPlaceholder" id="viz1702596611276" style="position: relative;">
+                    <noscript>
+                        <a href="#">
+                            <img alt="Keyword Growth Breakdown "
+                                src="https://public.tableau.com/static/images/NY/NYTsKeywordGrowthTreeMap/Sheet1/1_rss.png"
+                                style="border: none" />
+                        </a>
+                    </noscript>
+                    <object class="tableauViz" style="display:none;">
+                        <param name="host_url" value="https%3A%2F%2Fpublic.tableau.com%2F" />
+                        <param name="embed_code_version" value="3" />
+                        <param name="site_root" value="" />
+                        <param name="name" value="NYTsKeywordGrowthTreeMap/Sheet1" />
+                        <param name="tabs" value="no" />
+                        <param name="toolbar" value="yes" />
+                        <param name="static_image"
+                            value="https://public.tableau.com/static/images/NY/NYTsKeywordGrowthTreeMap/Sheet1/1.png" />
+                        <param name="animate_transition" value="yes" />
+                        <param name="display_static_image" value="yes" />
+                        <param name="display_spinner" value="yes" />
+                        <param name="display_overlay" value="yes" />
+                        <param name="display_count" value="yes" />
+                        <param name="language" value="en-US" />
+                    </object>
+                </div>
+            <p style="font-size: 16px; font-family: Arial; position: relative;"> "Hot topic" words can give us insights into the current events
+                of a given year. This word cloud shows for each year the top ten keywords that saw the largest percentage increase in frequency of use from
                 the previous year. We decided on a word cloud because it allows users to visualize the growth of top
                 keywords and compare them relative to others. The size of each word indicates the magnitude of growth,
                 making it easy to identify which topics have gained the most traction. As one might expect, in 2001, the
@@ -95,13 +98,15 @@
                 keywords like 'Iraq', 'United States International Relations', and 'Housing', coinciding with the Iraq War
                 and the focus on real estate that foreshadowed the coming housing market crisis. In 2008, 'Barack Obama' and
                 'United States Economy' surge in frequency, corresponding to Obama's election campaign and the global
-                financial crisis. This visualization not only highlights the dynamic nature of news topics but also
-                reflects historical events and shifts in public interest over time. </p>
+                financial crisis.
+                </p>
+            </div>
         </div>
 
         <div class="section">
             <h2>Current events shape our news landscape - How do topical news events shift the tone of articles across
                 different sectors of news?</h2>
+            <div class="tableau-paragraph-container"> 
             <div class='tableauPlaceholder' id='viz1702875274262' style='position: relative'>
                 <noscript><a href='#'><img alt='Sentiment Trends by Section '
                             src='https://public.tableau.com/static/images/Se/SentimentTrends_17027834242470/Sheet1/1_rss.png'
@@ -124,21 +129,58 @@
                 </object>
                 <div></div>
             </div> 
-            <p style="font-size: 19px; font-family: Arial;">The visualization above, called a Line Chart, illustrates the
+            <p style="font-size: 16px; font-family: Arial;">This line chart illustrates the
                 average sentiment across various sections over time. We utilized sentiment analysis to gauge the emotional
-                tone of the articles in each section, presenting a clear picture of how the mood of news reporting evolves.
-                This visualization offers a deeper understanding of how different sections of news might respond similarly
-                or differently to the same event. For example, the September 11 attacks in 2001 and the financial crisis of
-                2008 led to significant shifts in sentiment across all sections, highlighting how major events impact the
-                overall tone of news reporting. It's important to note that some sections, such as Opinion and International
-                News, may exhibit more extreme sentiment fluctuations compared to others. Users can interact with the
-                visualization to explore how sentiment trends in different sections have evolved, reflecting the diverse
-                ways in which The New York Times covers significant events. </p>
+                tone of the articles in each section, presenting a clear picture of how the tone of news changes.
+                This visualization shows how different sections of news might respond to the same event. For example, the September 11 attacks in 2001 and the financial crisis of
+                2008 led to significant shifts in sentiment across all sections, highlighting how major events have a wide spread impact on reporting. 
+                </p>
+            </div>
         </div>
-
+       
+        <div class="section">
+            <h2>
+                Which categories lean towards being the most negative?
+                The most positive?
+            </h2>
+        <div class="tableau-paragraph-container"> 
+            <div class="tableauPlaceholder" id="viz1702849659685" style="position: relative"><noscript><a href="#"><img
+                            alt="Overall Sentiment of Articles in Each News Category, Year Over Year - 2005 "
+                            src="https://public.tableau.com/static/images/Ov/OverallSentimentofArticlesinEachNewsCategoryYearOverYear/Sheet1/1_rss.png"
+                            style="border: none" /></a></noscript><object class="tableauViz" style="display:none;">
+                    <param name="host_url" value="https%3A%2F%2Fpublic.tableau.com%2F" />
+                    <param name="embed_code_version" value="3" />
+                    <param name="site_root" value="" />
+                    <param name="name" value="OverallSentimentofArticlesinEachNewsCategoryYearOverYear/Sheet1" />
+                    <param name="tabs" value="no" />
+                    <param name="toolbar" value="yes" />
+                    <param name="static_image"
+                        value="https://public.tableau.com/static/images/Ov/OverallSentimentofArticlesinEachNewsCategoryYearOverYear/Sheet1/1.png" />
+                    <param name="animate_transition" value="yes" />
+                    <param name="display_static_image" value="yes" />
+                    <param name="display_spinner" value="yes" />
+                    <param name="display_overlay" value="yes" />
+                    <param name="display_count" value="yes" />
+                    <param name="language" value="en-US" />
+                </object>
+            </div>
+        <p style="font-size: 14px; font-family: Arial">
+            Here, we find the breakdown of tone for different shections, allowing for a straightforward comparative analysis. Immediately you can recognize a trend in some of the
+            bars. Perhaps most insightful is the category for "World". Between 2000 and 2010, the category for World never has an overall negative sentiment
+            quantifier under fifty percent. That means, year over year, over fifty percent of world news articles published by The New York Times
+            will be focusing on a negative subject. We can contrast this to a category such as "Travel" where the category is overwhelmingly positive.
+            This makes sense: travel news is typically functioning partially as an advertizement to emphasize the beauty ofthe world.
+            In the travel section you will typically see great travel deals or trips people have taken. In contrast, the most commonly talked about
+            world news subjects are international conflicts. At the time of writing, opening The New York Times's World News page greets
+            me with the Israel-Palestine conflict and the Russia-Ukraine War.
+            There are no positive world articles. Is that to say there is no positive world news? Or that The New York times gives what consumers want, and
+            people are seeking out news about conflicts and not their resolutions.
+            </p>
+        </div>
+    </div>
         <div class="section">
             <h2>Conclusion</h2>
-            <p style="text-indent: 40px; font-family: Arial; font-size: 19px;">Our visualizations have provided valuable
+            <p style="font-family: Arial; font-size: 17px;">Our visualizations have provided valuable
                 insights into the publishing trends, keyword growth, and sentiment dynamics of New York Times articles over
                 the years. By exploring the data through these visualizations, we can better understand how The New York
                 Times has responded to historical events, how public interests have shifted, and how the tone of news
@@ -154,24 +196,46 @@
             navigation: true,
             navigationPosition: 'right',
             navigationTooltips: ['Intro', 'Section Production', 'Common Words', 'Sentiment Trends', 'Conclusion'],
-            showActiveTooltip: true,
+            showActiveTooltip: false,
             slidesNavigation: true,
             slidesNavPosition: 'bottom',
             scrollingSpeed: 700,
             css3: true,
             easing: 'easeInOutCubic',
-            sectionsColor: ['#f5f5f5', '#fff'],
         });
     </script>
 
     <script
-    type="text/javascript"> var divElement = document.getElementById("viz1702596611276"); var vizElement = divElement.getElementsByTagName("object")[0]; vizElement.style.width = "70%"; vizElement.style.height = (divElement.offsetWidth * 0.4) + "px"; var scriptElement = document.createElement("script"); scriptElement.src = "https://public.tableau.com/javascripts/api/viz_v1.js"; vizElement.parentNode.insertBefore(scriptElement, vizElement);</script>
+        type="text/javascript"> var divElement = document.getElementById("viz1702596611276");
+        var vizElement = divElement.getElementsByTagName("object")[0]; vizElement.style.width = "120%"; 
+        vizElement.style.height = (divElement.offsetWidth * 0.7) + "px"; 
+        var scriptElement = document.createElement("script"); scriptElement.src = "https://public.tableau.com/javascripts/api/viz_v1.js";
+        vizElement.parentNode.insertBefore(scriptElement, vizElement);
+    </script>
+
     <script
-        type="text/javascript"> var divElement = document.getElementById("viz1702875274262"); var vizElement = divElement.getElementsByTagName("object")[0]; vizElement.style.width = "70%"; vizElement.style.height = (divElement.offsetWidth * 0.4) + "px"; var scriptElement = document.createElement("script"); scriptElement.src = "https://public.tableau.com/javascripts/api/viz_v1.js"; vizElement.parentNode.insertBefore(scriptElement, vizElement);</script>
+        type="text/javascript"> var divElement = document.getElementById("viz1702875274262"); 
+        var vizElement = divElement.getElementsByTagName("object")[0]; vizElement.style.width = "100%"; 
+        vizElement.style.height = (divElement.offsetWidth * 0.7) + "px"; var scriptElement = document.createElement("script"); 
+        scriptElement.src = "https://public.tableau.com/javascripts/api/viz_v1.js"; 
+        vizElement.parentNode.insertBefore(scriptElement, vizElement);
+    </script>
+
     <script
-        type="text/javascript"> var divElement = document.getElementById("viz1702849659685"); var vizElement = divElement.getElementsByTagName("object")[0]; vizElement.style.width = "70%"; vizElement.style.height = (divElement.offsetWidth * 0.4) + "px"; var scriptElement = document.createElement("script"); scriptElement.src = "https://public.tableau.com/javascripts/api/viz_v1.js"; vizElement.parentNode.insertBefore(scriptElement, vizElement);</script>
+        type="text/javascript"> var divElement = document.getElementById("viz1702849659685");
+        var vizElement = divElement.getElementsByTagName("object")[0]; vizElement.style.width = "100%";
+        vizElement.style.height = (divElement.offsetWidth * 0.7) + "px"; var scriptElement = document.createElement("script");
+        scriptElement.src = "https://public.tableau.com/javascripts/api/viz_v1.js"; 
+        vizElement.parentNode.insertBefore(scriptElement, vizElement);
+    </script>
+
     <script 
-        type='text/javascript'>  var divElement = document.getElementById('viz1702860707636'); var vizElement = divElement.getElementsByTagName('object')[0]; vizElement.style.width = '70%'; vizElement.style.height = (divElement.offsetWidth * 0.40) + 'px'; var scriptElement = document.createElement('script'); scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js'; vizElement.parentNode.insertBefore(scriptElement, vizElement); </script>
+        type='text/javascript'>  var divElement = document.getElementById('viz1702860707636'); 
+        var vizElement = divElement.getElementsByTagName('object')[0]; vizElement.style.width = "100%"; 
+        vizElement.style.height = (divElement.offsetWidth * 0.70) + 'px'; var scriptElement = document.createElement('script'); 
+        scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js'; 
+        vizElement.parentNode.insertBefore(scriptElement, vizElement); 
+    </script>
 
 </body>
 

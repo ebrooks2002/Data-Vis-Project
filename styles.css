@@ -2,63 +2,121 @@
 
 body {
     font-family: 'Roboto', Arial, sans-serif;
-    background-color: #f5f5f5;
+    background-color: #ececec;
     color: #333;
     margin: 0;
     padding: 0;
-}
-
-header {
-    background-color: #004d99;
-    color: white;
-    padding: 20px 0;
-    text-align: center;
-}
-
-h1, h2 {
-    margin: 0;
+    line-height: 1.6;
 }
 
 .section {
-    background-color: white;
-    margin: 20px 0;
-    padding: 40px;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    background-color: #ffffff;;
+    margin: 0;
+    padding: 60px 40px;
+    transition: background-color 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.section:nth-child(even) {
+    background-color: #ffffff;
+}
+
+h1 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 10px;
+    color: #2c3e50;
+
+}
+
+h2 {
+    font-size: 1.5rem;
+    font-weight: 500;
+    margin-bottom: 20px;
+    color: #34495e;
+    text-align: center;
+    position:relative;
+    width: 100%;
 }
 
 .paragraph-container {
-    font-size: 1.2rem;
-    line-height: 1.6;
+    font-size: 1.1rem;
     max-width: 800px;
     margin: 20px auto;
     text-align: left;
 }
 
-.section h2 {
-  font-size: 2rem;
-  margin-bottom: 20px;
-}
-
-.section p {
-  font-size: 1.1rem;
-  margin: 0 0 20px;
+p {
+    margin-bottom: 20px;
 }
 
 a {
-  color: #004d99;
-  text-decoration: none;
+    color: #3498db;
+    text-decoration: none;
+    transition: color 0.3s ease;
 }
 
 a:hover {
-  text-decoration: underline;
+    color: #2980b9;
+    text-decoration: underline;
 }
 
-/* Add transitions */
-.section {
-  transition: transform 0.3s ease-in-out;
+.tableau-paragraph-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
 }
 
-.section:hover {
-  transform: translateY(-10px);
+.tableauPlaceholder {
+  flex: 0 0 60% !important; /* Increased from 60% to 70% */
+  margin-right: 10px !important; /* Reduced margin to accommodate larger size */
+}
+
+.tableau-paragraph {
+  flex: 0 0 25% !important; /* Reduced from 35% to 25% to give more space to the visualization */
+  font-size: 0.7rem !important;
+  line-height: 1.2 !important;
+}
+@media (max-width: 1024px) {
+    .tableau-paragraph-container {
+        flex-direction: column;
+    }
+
+    .tableauPlaceholder {
+        flex: 0 0 100%;
+        margin-right: 0;
+        margin-bottom: 20px;
+    }
+
+    .tableau-paragraph {
+        flex: 0 0 100%;
+    }
+}
+
+@media (max-width: 768px) {
+    .section {
+        padding: 40px 20px;
+    }
+
+    h1 {
+        font-size: 2rem;
+    }
+
+    h2 {
+        font-size: 1.5rem;
+    }
+
+    .paragraph-container {
+        font-size: 1rem;
+    }
+}
+
+#fp-nav ul li a span, 
+.fp-slidesNav ul li a span {
+    background: #2c3e50;
 }

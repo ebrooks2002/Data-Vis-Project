@@ -75,7 +75,7 @@ var myFullpage = new fullpage('#fullpage', {
 
   lazyLoading: true,
   observer: true,
-  credits: { enabled: true, label: 'Made with fullPage.js', position: 'right'},
+  
 
   // Events
   beforeLeave: function(origin, destination, direction, trigger){},
