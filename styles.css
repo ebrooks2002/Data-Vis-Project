@@ -50,6 +50,7 @@ h2 {
 
 p {
     margin-bottom: 20px;
+    line-height: 1;
 }
 
 a {
@@ -67,24 +68,24 @@ a:hover {
     display: flex;
     justify-content: space-between;
     align-items: flex-start;
-    width: 100%;
-    max-width: 1200px;
+    width: 1200px;
+    max-width: 1400px;
     margin: 0 auto;
 }
 
 .tableauPlaceholder {
-  flex: 0 0 60% !important; /* Increased from 60% to 70% */
+  flex: 0 0 80% !important; /* Increased from 60% to 70% */
   margin-right: 10px !important; /* Reduced margin to accommodate larger size */
 }
 
 .tableau-paragraph {
-  flex: 0 0 25% !important; /* Reduced from 35% to 25% to give more space to the visualization */
+  flex: 0 0 35% !important; /* Reduced from 35% to 25% to give more space to the visualization */
   font-size: 0.7rem !important;
-  line-height: 1.2 !important;
+  line-height: 1.0 !important;
 }
 @media (max-width: 1024px) {
     .tableau-paragraph-container {
-        flex-direction: column;
+        flex-direction: row;
     }
 
     .tableauPlaceholder {
