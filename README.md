@@ -8,7 +8,7 @@ The New York Times is the second largest grossing news source in the United Stat
 # About the Project: 
 Using a dataset of NYT articles spanning from 2000-2023, we identify trends in sentiment, article topics, and keywords. The features of the fields in the dataset include: abstract, Web URL, headline, keywords, pub date, news desk, section name, byline, and word count. 
 
-<img width="1083" alt="Screen Shot 2024-10-31 at 4 10 37 PM" src="https://github.com/user-attachments/assets/f46364d7-901c-419d-86be-ef5b57ab22d4">
+<img width="500" alt="Screen Shot 2024-10-31 at 4 10 37 PM" src="https://github.com/user-attachments/assets/f46364d7-901c-419d-86be-ef5b57ab22d4">
 
 We first focus on keyword frequency. To visualize the changes in frequency of keywords over the years, we’ll create an interactive bubble diagram where size of the bubble represents the percent change in frequency from the previous year. The top 10 biggest jumps will be shown in the diagram. One could learn how the keyword 'Iran' changes in frequency between 2002 and 2003. 
 
