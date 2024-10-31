@@ -21,7 +21,7 @@ Next, we identify changes in the popularity of certain topics over time. Every N
 
 Lastly, we run sentiment analysis on each article’s abstract, assigning the article one of three tones: positive, negative or neutral. This will help us answer the question: Can we see the overall tone of NYT articles change according to the positivity of current events? 
 
-<img width="778" alt="Screen Shot 2024-10-31 at 4 17 59 PM" src="https://github.com/user-attachments/assets/f62da9b8-cb7d-4b61-a5bd-d9e3e7cef0a8">
-<img width="776" alt="Screen Shot 2024-10-31 at 4 16 31 PM" src="https://github.com/user-attachments/assets/09da3c19-9d6c-411f-a8b5-11e764159c7b">
+<img width="578" alt="Screen Shot 2024-10-31 at 4 17 59 PM" src="https://github.com/user-attachments/assets/f62da9b8-cb7d-4b61-a5bd-d9e3e7cef0a8">
+<img width="576" alt="Screen Shot 2024-10-31 at 4 16 31 PM" src="https://github.com/user-attachments/assets/09da3c19-9d6c-411f-a8b5-11e764159c7b">
 
 
