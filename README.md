@@ -7,27 +7,58 @@ The New York Times is the second largest grossing news source in the United Stat
 
 # About the Project: 
 
-## Dataset
+## Dataset & Processing:
 Using a dataset of NYT articles spanning from 2000-2023, we identify trends in sentiment, article topics, and keywords. The features of the fields in the dataset include: abstract, Web URL, headline, keywords, pub date, news desk, section name, byline, and word count. 
 
 <img width="1000" alt="Screen Shot 2024-10-31 at 4 10 37 PM" src="https://github.com/user-attachments/assets/f46364d7-901c-419d-86be-ef5b57ab22d4">
 
-## Data Processing:
 ### Deleted:
-- null rows.
-- articles with a word count less than 50.
-- any row that didn't have a document_type of article.
-- articles that were in categories unimportant to our project (e.g. archives, obituary). 
+- Null rows.
+- Articles with a word count less than 50.
+- Any row that didn't have a document_type of article.
+- Articles that were in categories unimportant to our project (e.g. archives, obituary). 
 - Uneccessary columns (e.g. byline, headline, news desk).
 
 ### New Items Calculated: 
-- Sentiment ( i.e. positive, neutral, negative).
-- Created a new table with example below:
+- Sentiment ( i.e. positive, neutral, negative). Code chunk shown below:
+  ```
+  def calculate_new_column_value(row):
+    sentiment_score = sia.polarity_scores(row[1])
+    if sentiment_score:
+        # determine sentiment based on compound score
+        if sentiment_score['compound'] >= 0.05:
+            return "Sentiment: Positive"
+        elif sentiment_score['compound'] <= -0.05:
+            return "Sentiment: Negative"
+        else:
+            return "Sentiment: Neutral"
+  ```
+- Created a new table (3x100) showing which keywords saw the largest increase in frequency of use from 2001-2011. An example of the first two rows are shown below:
   | Year          |   Keyword     |    Growth Percentage  | 
   | ------------- | ------------- | --------------------  |
   |     2001      | New York City |      13,248           |        
   |     2001      |   Terrorism   |       9,391           |
- 
+  
+  We calculated the growth percentages by first counting the frequency of use keywords based on our original dataset:
+  ```
+  for year in range(2001, 2012):
+    prev_year = year - 1
+    current_year_keywords = yearly_keyword_counts[year]
+    prev_year_keywords = yearly_keyword_counts[prev_year]
+    
+    if current_year_keywords and prev_year_keywords:
+        for keyword in current_year_keywords:
+            if keyword in prev_year_keywords:
+                current_count = current_year_keywords[keyword]
+                prev_count = prev_year_keywords[keyword]
+                if prev_count != 0:  # Check if prev_count is not zero
+                    growth_percentage = ((current_count - prev_count) / prev_count) * 100
+                else:
+                    growth_percentage = 0
+   ```             
+# Sort the keywords by percentage growth and get the top 10
+    top_10_keywords = dict(sorted(current_year_keywords.items(), key=lambda item: item[1], reverse=True)[:10])
+  
 ###
 
 ## Keyword Frequency
