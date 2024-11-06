@@ -5,9 +5,8 @@ To see our project, visit: https://ebrooks2002.github.io/Data-Vis-Project/
 # Project Motivation:
 The New York Times is the second largest grossing news source in the United States while being one of the most highly regarded and recognized news organizations in the world. News has an interesting relationship to the consumer where it both defines and follows trends in society. Take for example the current Israel and Palestine conflict. Without news, the war would not be discussed by the general public and behind the closed doors of the federal governemnt the way it is currently. On the other hand, some things only remain relevant because of news coverage; social identities like the Kardashians only remain relevant because of continued public interest in the subject. Identifying patterns in NYT articles can provide insight into societal shifts and cultural changes over time. It can also provide insight into how media and journalism has developed through the 21st century.
 
-# About the Project: 
 
-## Dataset & Processing:
+# Dataset & Processing:
 Using a dataset of NYT articles spanning from 2000-2023, we identify trends in sentiment, article topics, and keywords. The features of the fields in the dataset include: abstract, Web URL, headline, keywords, pub date, news desk, section name, byline, and word count. 
 
 <img width="1000" alt="Screen Shot 2024-10-31 at 4 10 37 PM" src="https://github.com/user-attachments/assets/f46364d7-901c-419d-86be-ef5b57ab22d4">
@@ -55,11 +54,11 @@ Using a dataset of NYT articles spanning from 2000-2023, we identify trends in s
                     growth_percentage = ((current_count - prev_count) / prev_count) * 100
                 else:
                     growth_percentage = 0
-   ```             
-# Sort the keywords by percentage growth and get the top 10
+               
+    # Sort the keywords by percentage growth and get the top 10
     top_10_keywords = dict(sorted(current_year_keywords.items(), key=lambda item: item[1], reverse=True)[:10])
-  
-###
+  ```
+# Visualizations using Tableau:
 
 ## Keyword Frequency
 We first focus on keyword frequency. To visualize the changes in frequency of keywords over the years, we’ll create an interactive bubble diagram where size of the bubble represents the percent change in frequency from the previous year. The top 10 biggest jumps will be shown in the diagram. One could learn how the keyword 'Iran' changes in frequency between 2002 and 2003. 
