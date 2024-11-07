@@ -1,82 +1,104 @@
 # COMP 435 Data Visualization Final Project
 
-To see our project, visit: https://ebrooks2002.github.io/Data-Vis-Project/
+### Visit the Project
+[Data-Vis-Project on GitHub Pages](https://ebrooks2002.github.io/Data-Vis-Project/)
 
-# Project Motivation:
-The New York Times is the second largest grossing news source in the United States while being one of the most highly regarded and recognized news organizations in the world. News has an interesting relationship to the consumer where it both defines and follows trends in society. Take for example the current Israel and Palestine conflict. Without news, the war would not be discussed by the general public and behind the closed doors of the federal governemnt the way it is currently. On the other hand, some things only remain relevant because of news coverage; social identities like the Kardashians only remain relevant because of continued public interest in the subject. Identifying patterns in NYT articles can provide insight into societal shifts and cultural changes over time. It can also provide insight into how media and journalism has developed through the 21st century.
+---
 
+## Project Motivation
+The New York Times (NYT) is the second-largest grossing news source in the United States and one of the most highly regarded news organizations globally. News has a unique relationship with the consumer—it both defines and follows societal trends. For example, consider the current Israel and Palestine conflict. Without news, this conflict would not be as widely discussed by the public and behind closed federal doors the way it is today. In other cases, certain topics remain relevant only due to ongoing media coverage, such as social identities like the Kardashians, which stay in the public eye largely through continued interest in the news. By analyzing patterns in NYT articles, we can gain insight into societal shifts, cultural changes, and how media and journalism have evolved through the 21st century.
 
-# Dataset & Processing:
-Using a dataset of NYT articles spanning from 2000-2023, we identify trends in sentiment, article topics, and keywords. The features of the fields in the dataset include: abstract, Web URL, headline, keywords, pub date, news desk, section name, byline, and word count. 
+---
 
-<img width="1000" alt="Screen Shot 2024-10-31 at 4 10 37 PM" src="https://github.com/user-attachments/assets/f46364d7-901c-419d-86be-ef5b57ab22d4">
+## Dataset & Processing
 
-### Deleted:
-- Null rows.
-- Articles with a word count less than 50.
-- Any row that didn't have a document_type of article.
-- Articles that were in categories unimportant to our project (e.g. archives, obituary). 
-- Uneccessary columns (e.g. byline, headline, news desk).
+Using a dataset of NYT articles from 2000 to 2023, we analyze trends in sentiment, topics, and keywords. The dataset fields include:
 
-### New Items Calculated: 
-- Sentiment ( i.e. positive, neutral, negative). Code chunk shown below:
-  ```
-  def calculate_new_column_value(row):
-    sentiment_score = sia.polarity_scores(row[1])
-    if sentiment_score:
-        # determine sentiment based on compound score
-        if sentiment_score['compound'] >= 0.05:
-            return "Sentiment: Positive"
-        elif sentiment_score['compound'] <= -0.05:
-            return "Sentiment: Negative"
-        else:
-            return "Sentiment: Neutral"
-  ```
-- Created a new table (3x100) showing which keywords saw the largest increase in frequency of use from 2001-2011. An example of the first two rows are shown below:
-  | Year          |   Keyword     |    Growth Percentage  | 
-  | ------------- | ------------- | --------------------  |
-  |     2001      | New York City |      13,248           |        
-  |     2001      |   Terrorism   |       9,391           |
-  
-  We calculated the growth percentages by first counting the frequency of use keywords based on our original dataset:
-  ```
-  for year in range(2001, 2012):
-    prev_year = year - 1
-    current_year_keywords = yearly_keyword_counts[year]
-    prev_year_keywords = yearly_keyword_counts[prev_year]
-    
-    if current_year_keywords and prev_year_keywords:
-        for keyword in current_year_keywords:
-            if keyword in prev_year_keywords:
-                current_count = current_year_keywords[keyword]
-                prev_count = prev_year_keywords[keyword]
-                if prev_count != 0:  # Check if prev_count is not zero
-                    growth_percentage = ((current_count - prev_count) / prev_count) * 100
-                else:
-                    growth_percentage = 0
-               
-    # Sort the keywords by percentage growth and get the top 10
-    top_10_keywords = dict(sorted(current_year_keywords.items(), key=lambda item: item[1], reverse=True)[:10])
-  ```
-# Visualizations using Tableau:
+- **abstract**
+- **web URL**
+- **headline**
+- **keywords**
+- **publication date**
+- **news desk**
+- **section name**
+- **byline**
+- **word count**
 
-## Keyword Frequency
-We first focus on keyword frequency. To visualize the changes in frequency of keywords over the years, we’ll create an interactive bubble diagram where size of the bubble represents the percent change in frequency from the previous year. The top 10 biggest jumps will be shown in the diagram. One could learn how the keyword 'Iran' changes in frequency between 2002 and 2003. 
+### Data Cleaning & Preparation
 
-<img width="606" alt="Screen Shot 2024-10-31 at 4 12 57 PM" src="https://github.com/user-attachments/assets/364b4f95-9228-40be-963c-d746a17a767c">
+**Deleted:**
+- Rows with null values.
+- Articles with fewer than 50 words.
+- Rows where the `document_type` was not "article."
+- Articles from categories unrelated to our project, such as archives and obituaries.
+- Unnecessary columns like `byline`, `headline`, and `news desk`.
 
-## Topic Popularity
-Next, we identify changes in the popularity of certain topics over time. Every NYT article is placed within a certain category, so we will use an interactive stacked line chart to show how these categories change. For example, a user may inquire into how on average, the number of Sports articles published in a given month changes since 2000. Or how the annual number of published articles within the Politics category changes over the course of 4 years. 
+**New Calculations:**
 
-<img width="801" alt="Screen Shot 2024-10-31 at 4 19 12 PM" src="https://github.com/user-attachments/assets/19539bc8-5514-4822-b75a-deb701df5d48">
+1. **Sentiment Analysis**: Each article's sentiment was calculated as positive, neutral, or negative. Example code snippet:
+   ```python
+   def calculate_new_column_value(row):
+       sentiment_score = sia.polarity_scores(row[1])
+       if sentiment_score:
+           # determine sentiment based on compound score
+           if sentiment_score['compound'] >= 0.05:
+               return "Sentiment: Positive"
+           elif sentiment_score['compound'] <= -0.05:
+               return "Sentiment: Negative"
+           else:
+               return "Sentiment: Neutral"
+   ```
 
-## Sentiment Analysis
-Lastly, we run sentiment analysis on each article’s abstract, assigning the article one of three tones: positive, negative or neutral. This will help us answer the question: Can we see the overall tone of NYT articles change according to the positivity of current events? 
+2. **Keyword Growth Table**: We created a table (3x100) showing keywords with the largest increase in usage frequency from 2001 to 2011. Below is an example of the first two rows:
+   | Year          | Keyword        | Growth Percentage |
+   |---------------|----------------|-------------------|
+   | 2001          | New York City  | 13,248           |
+   | 2001          | Terrorism      | 9,391            |
 
-### Change in Sentiment Over Time:
-<img width="578" alt="Screen Shot 2024-10-31 at 4 17 59 PM" src="https://github.com/user-attachments/assets/f62da9b8-cb7d-4b61-a5bd-d9e3e7cef0a8">
+   Growth percentages were calculated by comparing keyword frequencies year-over-year:
+   ```python
+   for year in range(2001, 2012):
+       prev_year = year - 1
+       current_year_keywords = yearly_keyword_counts[year]
+       prev_year_keywords = yearly_keyword_counts[prev_year]
+       
+       if current_year_keywords and prev_year_keywords:
+           for keyword in current_year_keywords:
+               if keyword in prev_year_keywords:
+                   current_count = current_year_keywords[keyword]
+                   prev_count = prev_year_keywords[keyword]
+                   if prev_count != 0:  # Check if prev_count is not zero
+                       growth_percentage = ((current_count - prev_count) / prev_count) * 100
+                   else:
+                       growth_percentage = 0
 
-### Differences in Sentiment Across Topics:
-<img width="576" alt="Screen Shot 2024-10-31 at 4 16 31 PM" src="https://github.com/user-attachments/assets/09da3c19-9d6c-411f-a8b5-11e764159c7b">
+       # Sort keywords by growth percentage and select the top 10
+       top_10_keywords = dict(sorted(current_year_keywords.items(), key=lambda item: item[1], reverse=True)[:10])
+   ```
 
+---
 
+## Visualizations Using Tableau
+
+### 1. Keyword Frequency
+To visualize changes in keyword frequency over time, we created an interactive bubble diagram where the bubble size represents the year-over-year percentage change. The top 10 keywords with the highest jumps are displayed. For instance, users can see how the keyword "Iran" changes in frequency between 2002 and 2003.
+
+![Keyword Frequency Visualization](https://github.com/user-attachments/assets/364b4f95-9228-40be-963c-d746a17a767c)
+
+### 2. Topic Popularity
+Next, we examine changes in topic popularity over time. Each NYT article belongs to a specific category, which allows us to use a stacked line chart to show category trends. Users can explore how the average number of "Sports" articles published monthly has changed since 2000 or track how "Politics" articles vary annually.
+
+![Topic Popularity Visualization](https://github.com/user-attachments/assets/19539bc8-5514-4822-b75a-deb701df5d48)
+
+### 3. Sentiment Analysis
+Finally, we performed sentiment analysis on each article's abstract, categorizing them as positive, negative, or neutral. This analysis helps us answer questions such as: Does the overall tone of NYT articles shift in response to positive or negative current events?
+
+#### Sentiment Changes Over Time:
+![Sentiment Over Time](https://github.com/user-attachments/assets/f62da9b8-cb7d-4b61-a5bd-d9e3e7cef0a8)
+
+#### Sentiment Differences Across Topics:
+![Sentiment by Topic](https://github.com/user-attachments/assets/09da3c19-9d6c-411f-a8b5-11e764159c7b)
+
+--- 
+
+This project provides a unique lens to examine how the NYT reflects and potentially influences cultural and societal shifts. 
