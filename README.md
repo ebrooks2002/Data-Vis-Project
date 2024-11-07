@@ -24,8 +24,6 @@ Using a dataset of NYT articles from 2000 to 2023, we analyze trends in sentimen
 - **byline**
 - **word count**
 
-### Data Cleaning & Preparation
-
 **Deleted:**
 - Rows with null values.
 - Articles with fewer than 50 words.
@@ -86,7 +84,7 @@ To visualize changes in keyword frequency over time, we created an interactive b
 ![Keyword Frequency Visualization](https://github.com/user-attachments/assets/364b4f95-9228-40be-963c-d746a17a767c)
 
 ### 2. Topic Popularity
-Next, we examine changes in topic popularity over time. Each NYT article belongs to a specific category, which allows us to use a stacked line chart to show category trends. Users can explore how the average number of "Sports" articles published monthly has changed since 2000 or track how "Politics" articles vary annually.
+Next, we examine changes in topic popularity over time. Each NYT article belongs to a specific category, which allows us to use a stacked line chart to show category trends. Users can explore how the average number of "Sports" or "Politics" articles published annually has changed since 2000
 
 ![Topic Popularity Visualization](https://github.com/user-attachments/assets/19539bc8-5514-4822-b75a-deb701df5d48)
 
