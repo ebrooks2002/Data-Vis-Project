@@ -3,183 +3,291 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Investigating Trends in NYT Articles</title>
-    <!-- External Stylesheets -->
+    <!-- Include Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <!-- fullPage.js CSS -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fullPage.js/4.0.11/fullpage.min.css">
-    <link rel="stylesheet" href="styles.css">
+    <!-- Custom Styles -->
+    <style>
+        /* General Styles */
+        body {
+            margin: 0;
+            font-family: 'Roboto', sans-serif;
+        }
+
+        /* Intro Section Styles */
+        #intro {
+            position: relative;
+            background-color: #fdfffd;
+            height: 100vh;
+            color: rgb(22, 12, 12);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+        }
+
+        #intro-content {
+            position: relative;
+            z-index: 1;
+            max-width: 800px;
+            padding: 0 20px;
+        }
+
+        #intro h1 {
+            font-size: 3em;
+            margin-bottom: 0.5em;
+        }
+
+        #intro h2 {
+            font-size: 1.5em;
+            margin-bottom: 1em;
+            font-weight: 400;
+        }
+
+        #intro p {
+            font-size: 1.2em;
+            line-height: 1.6;
+        }
+
+        #intro a {
+            color: #384c7e;
+            text-decoration: underline;
+        }
+
+        /* D3.js Section Styles */
+        .content-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 60px 20px;
+            text-align: center;
+            font-family: 'Roboto', sans-serif;
+        }
+
+        .content-container h2 {
+            font-size: 2.5em;
+            margin-bottom: 20px;
+            color: #2e2929;
+        }
+
+        .year-selector,
+        .selector-container {
+            margin-bottom: 20px;
+        }
+
+        .year-selector label,
+        .selector-container label {
+            font-size: 1.2em;
+            margin-right: 10px;
+            color: #555;
+        }
+
+        .year-selector select,
+        .selector-container select {
+            font-size: 1em;
+            padding: 5px 10px;
+        }
+
+        #treemap,
+        #wordcloud,
+        #linechart,
+        #stackedbarchart {
+            width: 100%;
+            height: 600px;
+            margin: 0 auto;
+            border: 1px solid #ddd;
+        }
+
+        .treemap-rect {
+            stroke: #fff;
+            fill-opacity: 0.9;
+        }
+
+        .label {
+            font-size: 0.9em;
+            fill: white;
+            text-anchor: middle;
+            pointer-events: none;
+        }
+
+        .content-container p {
+            font-size: 1.1em;
+            line-height: 1.6;
+            color: #555;
+            margin-top: 40px;
+        }
+
+        /* Axis Labels */
+        .axis-label {
+            font-size: 12px;
+            fill: #333;
+        }
+
+        /* Legend Styles */
+        .legend {
+            font-size: 14px;
+            fill: #333;
+        }
+
+        .legend rect {
+            stroke-width: 1;
+            stroke: black;
+        }
+    </style>
 </head>
 
 <body>
     <div id="fullpage">
         <!-- Intro Section -->
         <div class="section" id="intro">
-            <header>
-                <h1>Investigating Trends in <i>The New York Times Through</i> Visualization</h1>
+            <div id="intro-content">
+                <h1>Investigating Trends in <i>The New York Times</i> Through Visualization</h1>
                 <h2>By Ethan Brooks and Tamur Asar</h2>
-            </header>
-            <p class="paragraph-container">
-                The following visualizations were constructed using a collection of over 
-                <a href="https://www.kaggle.com/datasets/aryansingh0909/nyt-articles-21m-2000-present" target="_blank">
-                    two million New York Times articles.
-                </a> 
-                They aim to illustrate common patterns, be that cultural or semantic, that exist in NYT articles. While we do not have comprehensive datasets for other news agencies to compare to, we aim to extrapolate our findings as an explanation to broader news trends.
-            </p>
-        </div>
-
-        <!-- Section Production -->
-        <div class="section">
-            <h2>Which New York Times sections produce the most news?</h2>
-            <div class="tableau-paragraph-container">
-                <div class="tableauWrapper">
-                    <div class="tableauPlaceholder" id="viz1702860707636">
-                        <noscript>
-                            <a href="#">
-                                <img alt="Breakdown by Section in 2000" src="https://public.tableau.com/static/images/Se/SectionTreeMap/Sheet1/1_rss.png" />
-                            </a>
-                        </noscript>
-                        <object class="tableauViz" style="display:none;">
-                            <param name="host_url" value="https%3A%2F%2Fpublic.tableau.com%2F" />
-                            <param name="embed_code_version" value="3" />
-                            <param name="site_root" value="" />
-                            <param name="name" value="SectionTreeMap/Sheet1" />
-                            <param name="tabs" value="no" />
-                            <param name="toolbar" value="yes" />
-                            <param name="static_image" value="https://public.tableau.com/static/images/Se/SectionTreeMap/Sheet1/1.png" />
-                            <param name="animate_transition" value="yes" />
-                            <param name="display_static_image" value="yes" />
-                            <param name="display_spinner" value="yes" />
-                            <param name="display_overlay" value="yes" />
-                            <param name="display_count" value="yes" />
-                            <param name="language" value="en-US" />
-                        </object>
-                    </div>
-                </div>
-                <div class="description">
-                    This visualization, called a Tree Map, shows the breakdown of published articles by section for a given year. Treemaps are effective at conveying how individual sections contribute to the total volume of published articles. By interacting with the year slider, users can explore trends over time. For example, they might discover growth in technology-related articles with the rise of the internet and digital culture. They might also discover the New York Section was common during the post 9/11 period, that the Business Day section rose during the 2007 financial crisis, and that the World section rose during the 2003 Iraq War. Viewers may also notice that some sections hold a relatively constant percent makeup of total articles published, while others fluctuate greatly year to year.
-                </div>
+                <p>The following visualizations were constructed using a collection
+                    of over <a href="https://www.kaggle.com/datasets/aryansingh0909/nyt-articles-21m-2000-present"
+                        target="_blank">two million New York Times articles</a>. They aim to illustrate common patterns,
+                    be that cultural or semantic, that exist in NYT articles. While we do not have comprehensive datasets
+                    for other news agencies to compare to, we aim to extrapolate our findings as an explanation to broader
+                    news trends.
+                </p>
             </div>
         </div>
 
-        <!-- Common Words Section -->
+        <!-- D3.js Treemap Section -->
         <div class="section">
-            <h2>What were the most common words of each year?</h2>
-            <div class="tableau-paragraph-container">
-                <div class="tableauWrapper">
-                    <div class="tableauPlaceholder" id="viz1702596611276">
-                        <noscript>
-                            <a href="#">
-                                <img alt="Keyword Growth Breakdown" src="https://public.tableau.com/static/images/NY/NYTsKeywordGrowthTreeMap/Sheet1/1_rss.png" />
-                            </a>
-                        </noscript>
-                        <object class="tableauViz" style="display:none;">
-                            <param name="host_url" value="https%3A%2F%2Fpublic.tableau.com%2F" />
-                            <param name="embed_code_version" value="3" />
-                            <param name="site_root" value="" />
-                            <param name="name" value="NYTsKeywordGrowthTreeMap/Sheet1" />
-                            <param name="tabs" value="no" />
-                            <param name="toolbar" value="yes" />
-                            <param name="static_image" value="https://public.tableau.com/static/images/NY/NYTsKeywordGrowthTreeMap/Sheet1/1.png" />
-                            <param name="animate_transition" value="yes" />
-                            <param name="display_static_image" value="yes" />
-                            <param name="display_spinner" value="yes" />
-                            <param name="display_overlay" value="yes" />
-                            <param name="display_count" value="yes" />
-                            <param name="language" value="en-US" />
-                        </object>
-                    </div>
+            <div class="content-container">
+                <h2>Which New York Times sections produce the most news?</h2>
+                <!-- Year Selector -->
+                <div class="year-selector">
+                    <label for="year">Select Year:</label>
+                    <select id="year"></select>
                 </div>
-                <div class="description">
-                    "Hot topic" words can give us insights into the current events of a given year. This word cloud shows for each year the top ten keywords that saw the largest percentage increase in frequency of use from the previous year. We decided on a word cloud because it allows users to visualize the growth of top keywords and compare them relative to others. The size of each word indicates the magnitude of growth, making it easy to identify which topics have gained the most traction. As one might expect, in 2001, the keywords 'New York City' and 'Terrorism' grew significantly from the previous year, reflecting the impact of the September 11th attacks on public consciousness and media coverage. In 2003, we see the prominence of keywords like 'Iraq', 'United States International Relations', and 'Housing', coinciding with the Iraq War and the focus on real estate that foreshadowed the coming housing market crisis. In 2008, 'Barack Obama' and 'United States Economy' surged in frequency, corresponding to Obama's election campaign and the global financial crisis.
-                </div>
+                <!-- Treemap Container -->
+                <div id="treemap"></div>
+                <p>
+                    This visualization, called a Treemap, shows the breakdown
+                    of published articles by section for a given year. Treemaps
+                    are effective at conveying how individual sections contribute to the total volume of published articles. By
+                    interacting with the year selector, users can explore trends over time. For example, they might discover
+                    growth in technology-related articles with the rise of the internet and digital culture. They might also
+                    discover the New York section was common during the post-9/11 period, that the Business Day section rose
+                    during the 2007 financial crisis, and that the World section rose during the 2003 Iraq War. Viewers may also
+                    notice that some sections hold a relatively constant percentage makeup of total articles published, while
+                    others fluctuate greatly year to year.
+                </p>
             </div>
         </div>
 
-        <!-- Sentiment Trends Section -->
+        <!-- D3.js Word Cloud Section -->
         <div class="section">
-            <h2>Current events shape our news landscape - How do topical news events shift the tone of articles across different sectors of news?</h2>
-            <div class="tableau-paragraph-container">
-                <div class="tableauWrapper">
-                    <div class="tableauPlaceholder" id="viz1702875274262">
-                        <noscript>
-                            <a href="#">
-                                <img alt="Sentiment Trends by Section" src="https://public.tableau.com/static/images/Se/SentimentTrends_17027834242470/Sheet1/1_rss.png" />
-                            </a>
-                        </noscript>
-                        <object class="tableauViz" style="display:none;">
-                            <param name="host_url" value="https%3A%2F%2Fpublic.tableau.com%2F" />
-                            <param name="embed_code_version" value="3" />
-                            <param name="site_root" value="" />
-                            <param name="name" value="SentimentTrends_17027834242470/Sheet1" />
-                            <param name="tabs" value="no" />
-                            <param name="toolbar" value="yes" />
-                            <param name="static_image" value="https://public.tableau.com/static/images/Se/SentimentTrends_17027834242470/Sheet1/1.png" />
-                            <param name="animate_transition" value="yes" />
-                            <param name="display_static_image" value="yes" />
-                            <param name="display_spinner" value="yes" />
-                            <param name="display_overlay" value="yes" />
-                            <param name="display_count" value="yes" />
-                            <param name="language" value="en-US" />
-                        </object>
-                    </div>
+            <div class="content-container">
+                <h2>What were the most common words of each year?</h2>
+                <!-- Year Selector -->
+                <div class="year-selector">
+                    <label for="wordcloud-year">Select Year:</label>
+                    <select id="wordcloud-year"></select>
                 </div>
-                <div class="description">
-                    This line chart illustrates the average sentiment across various sections over time. We utilized sentiment analysis to gauge the emotional tone of the articles in each section, presenting a clear picture of how the tone of news changes. This visualization shows how different sections of news might respond to the same event. For example, the September 11 attacks in 2001 and the financial crisis of 2008 led to significant shifts in sentiment across all sections, highlighting how major events have a widespread impact on reporting.
-                </div>
+                <!-- Word Cloud Container -->
+                <div id="wordcloud"></div>
+                <p>
+                    "Hot topic" words can give us insights into the current events
+                    of a given year. This word cloud shows for each year the top ten keywords that saw the largest percentage
+                    increase in frequency of use from the previous year. We decided on a word cloud because it allows users to
+                    visualize the growth of top keywords and compare them relative to others. The size of each word indicates the
+                    magnitude of growth, making it easy to identify which topics have gained the most traction. As one might
+                    expect, in 2001, the keywords 'New York City' and 'Terrorism' grew significantly from the previous year,
+                    reflecting the impact of the September 11th attacks on public consciousness and media coverage. In 2003, we
+                    see the prominence of keywords like 'Iraq', 'United States International Relations', and 'Housing',
+                    coinciding with the Iraq War and the focus on real estate that foreshadowed the coming housing market crisis.
+                    In 2008, 'Barack Obama' and 'United States Economy' surge in frequency, corresponding to Obama's election
+                    campaign and the global financial crisis.
+                </p>
             </div>
         </div>
 
-        <!-- Sentiment Categories Section -->
+        <!-- D3.js Line Chart Sentiment Trends Section -->
         <div class="section">
-            <h2>Which categories lean towards being the most negative? The most positive?</h2>
-            <div class="tableau-paragraph-container">
-                <div class="tableauWrapper">
-                    <div class="tableauPlaceholder" id="viz1702849659685">
-                        <noscript>
-                            <a href="#">
-                                <img alt="Overall Sentiment of Articles in Each News Category, Year Over Year - 2005" src="https://public.tableau.com/static/images/Ov/OverallSentimentofArticlesinEachNewsCategoryYearOverYear/Sheet1/1_rss.png" />
-                            </a>
-                        </noscript>
-                        <object class="tableauViz" style="display:none;">
-                            <param name="host_url" value="https%3A%2F%2Fpublic.tableau.com%2F" />
-                            <param name="embed_code_version" value="3" />
-                            <param name="site_root" value="" />
-                            <param name="name" value="OverallSentimentofArticlesinEachNewsCategoryYearOverYear/Sheet1" />
-                            <param name="tabs" value="no" />
-                            <param name="toolbar" value="yes" />
-                            <param name="static_image" value="https://public.tableau.com/static/images/Ov/OverallSentimentofArticlesinEachNewsCategoryYearOverYear/Sheet1/1.png" />
-                            <param name="animate_transition" value="yes" />
-                            <param name="display_static_image" value="yes" />
-                            <param name="display_spinner" value="yes" />
-                            <param name="display_overlay" value="yes" />
-                            <param name="display_count" value="yes" />
-                            <param name="language" value="en-US" />
-                        </object>
-                    </div>
+            <div class="content-container">
+                <h2>Current events shape our news landscape - How do topical news events shift the tone of articles across
+                    different sectors of news?</h2>
+                <!-- Section Selector -->
+                <div class="selector-container">
+                    <label for="sectionSelect">Select Section:</label>
+                    <select id="sectionSelect"></select>
                 </div>
-                <div class="description">
-                    Here, we find the breakdown of tone for different sections, allowing for a straightforward comparative analysis. Immediately, you can recognize a trend in some of the bars. Perhaps most insightful is the category for "World". Between 2000 and 2010, the category for World never has an overall negative sentiment quantifier under fifty percent. That means, year over year, over fifty percent of world news articles published by The New York Times will be focusing on a negative subject. We can contrast this to a category such as "Travel" where the category is overwhelmingly positive. This makes sense: travel news is typically functioning partially as an advertisement to emphasize the beauty of the world. In the travel section, you will typically see great travel deals or trips people have taken. In contrast, the most commonly talked about world news subjects are international conflicts. At the time of writing, opening The New York Times's World News page greets me with the Israel-Palestine conflict and the Russia-Ukraine War. There are no positive world articles. Is that to say there is no positive world news? Or that The New York Times gives what consumers want, and people are seeking out news about conflicts and not their resolutions.
+                <!-- Line Chart Container -->
+                <div id="linechart"></div>
+                <p>
+                    This line chart illustrates the
+                    average sentiment across various sections over time. We utilized sentiment analysis to gauge the emotional
+                    tone of the articles in each section, presenting a clear picture of how the tone of news changes.
+                    This visualization shows how different sections of news might respond to the same event. For example, the
+                    September 11 attacks in 2001 and the financial crisis of 2008 led to significant shifts in sentiment across all
+                    sections, highlighting how major events have a widespread impact on reporting.
+                </p>
+            </div>
+        </div>
+
+        <!-- D3.js Stacked Bar Chart Section -->
+        <div class="section">
+            <div class="content-container">
+                <h2>
+                    Which categories lean towards being the most negative? The most positive?
+                </h2>
+                <!-- Year Selector -->
+                <div class="year-selector">
+                    <label for="yearSelect">Select Year:</label>
+                    <select id="yearSelect"></select>
                 </div>
+                <!-- Stacked Bar Chart Container -->
+                <div id="stackedbarchart"></div>
+                <p>
+                    Here, we find the breakdown of tone for different sections, allowing for a straightforward comparative
+                    analysis. Immediately you can recognize a trend in some of the bars. Perhaps most insightful is the category
+                    for "World". Between 2000 and 2010, the category for World never has an overall negative sentiment quantifier
+                    under fifty percent. That means, year over year, over fifty percent of world news articles published by The New
+                    York Times focus on negative subjects. We can contrast this to a category such as "Travel" where the category
+                    is overwhelmingly positive. This makes sense: travel news typically emphasizes the beauty of the world. In
+                    contrast, the most commonly talked about world news subjects are international conflicts. At the time of
+                    writing, opening The New York Times's World News page greets us with the Israel-Palestine conflict and the
+                    Russia-Ukraine War. There are no positive world articles. Is that to say there is no positive world news? Or
+                    that The New York Times provides what consumers seek, and people are looking for news about conflicts rather
+                    than their resolutions.
+                </p>
             </div>
         </div>
 
         <!-- Conclusion Section -->
         <div class="section">
-            <h2>Conclusion</h2>
-            <p class="conclusion">
-                Our visualizations have provided valuable insights into the publishing trends, keyword growth, and sentiment dynamics of New York Times articles over the years. By exploring the data through these visualizations, we can better understand how The New York Times has responded to historical events, how public interests have shifted, and how the tone of news reporting has evolved. We hope these visualizations inspire further exploration and analysis of media trends, contributing to a deeper understanding of the factors that shape the news landscape.
-            </p>
+            <div class="content-container">
+                <h2>Conclusion</h2>
+                <p>
+                    Our visualizations have provided valuable
+                    insights into the publishing trends, keyword growth, and sentiment dynamics of New York Times articles over
+                    the years. By exploring the data through these visualizations, we can better understand how The New York
+                    Times has responded to historical events, how public interests have shifted, and how the tone of news
+                    reporting has evolved. We hope these visualizations inspire further exploration and analysis of media
+                    trends, contributing to a deeper understanding of the factors that shape the news landscape.
+                </p>
+            </div>
         </div>
     </div>
 
-    <!-- External Scripts -->
+    <!-- Scripts -->
+    <!-- D3.js -->
+    <script src="https://d3js.org/d3.v6.min.js"></script>
+    <!-- D3 Word Cloud Layout -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/d3-cloud/1.2.5/d3.layout.cloud.min.js"></script>
+    <!-- fullPage.js -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/fullPage.js/4.0.11/fullpage.min.js"></script>
+    <!-- Initialize fullPage.js -->
     <script>
         new fullpage('#fullpage', {
             autoScrolling: true,
             navigation: true,
             navigationPosition: 'right',
-            navigationTooltips: ['Intro', 'Section Production', 'Common Words', 'Sentiment Trends', 'Conclusion'],
+            navigationTooltips: ['Intro', 'Section Production', 'Common Words', 'Sentiment Trends', 'Categories Sentiment', 'Conclusion'],
             showActiveTooltip: false,
             slidesNavigation: true,
             slidesNavPosition: 'bottom',
@@ -189,35 +297,560 @@
         });
     </script>
 
-    <!-- Tableau Visualizations Scripts -->
-    <script type="text/javascript">
-        const tableauVizIds = [
-            "viz1702596611276",
-            "viz1702875274262",
-            "viz1702849659685",
-            "viz1702860707636"
-        ];
+    <!-- D3.js Treemap Script -->
+    <script>
+        // Set dimensions based on container size
+        const treemapContainer = document.getElementById('treemap');
+        const width = treemapContainer.clientWidth;
+        const height = treemapContainer.clientHeight;
 
-        tableauVizIds.forEach(id => {
-            const divElement = document.getElementById(id);
-            if (divElement) {
-                const vizElement = divElement.getElementsByTagName("object")[0];
-                if (vizElement) {
-                    vizElement.style.width = "100%";
-                    vizElement.style.height = "400px"; // Fixed height for smaller visualization
+        // Create SVG for treemap
+        const svg = d3.select("#treemap")
+            .append("svg")
+            .attr("width", width)
+            .attr("height", height);
 
-                    /*
-                    // Alternatively, use a smaller multiplier for relative height:
-                    vizElement.style.height = `${divElement.offsetWidth * 0.5}px`;
-                    */
+        // Load the CSV data
+        d3.csv("treemap2000-11.csv").then(data => {
+            // Convert numerical columns from strings to numbers
+            data.forEach(d => {
+                d['Count of nyt-metadata-cleaned-3.csv'] = +d['Count of nyt-metadata-cleaned-3.csv'];
+                d['Year'] = +d['Year'];
+            });
 
-                    const scriptElement = document.createElement("script");
-                    scriptElement.src = "https://public.tableau.com/javascripts/api/viz_v1.js";
-                    vizElement.parentNode.insertBefore(scriptElement, vizElement);
+            // Extract and sort unique years for the dropdown
+            const years = Array.from(new Set(data.map(d => d.Year))).sort((a, b) => a - b);
+            const yearFilter = d3.select("#year");
+            years.forEach(year => {
+                yearFilter.append("option").text(year).attr("value", year);
+            });
+
+            // Function to update the treemap based on selected year
+            function updateTreemap(selectedYear) {
+                const filteredData = data.filter(d => d.Year == selectedYear);
+
+                // Get max article count for color scaling
+                const maxCount = d3.max(filteredData, d => d['Count of nyt-metadata-cleaned-3.csv']);
+
+                // Define a color scale using a gradient (e.g., shades of blue)
+                const colorScale = d3.scaleSequential()
+                    .domain([0, maxCount])
+                    .interpolator(d3.interpolateBlues);
+
+                // Group data by section name and calculate total article count
+                const sectionCounts = filteredData.map(d => ({
+                    name: d['Section Name'],
+                    value: d['Count of nyt-metadata-cleaned-3.csv']
+                }));
+
+                // Set up hierarchy and treemap layout
+                const root = d3.hierarchy({ children: sectionCounts })
+                    .sum(d => d.value)
+                    .sort((a, b) => b.value - a.value);
+
+                d3.treemap()
+                    .size([width, height])
+                    .padding(2)(root);
+
+                // Bind data and create groups for each rectangle and label
+                const nodes = svg.selectAll("g")
+                    .data(root.leaves(), d => d.data.name);
+
+                nodes.exit().remove();
+
+                const nodeEnter = nodes.enter().append("g")
+                    .attr("transform", d => `translate(${d.x0},${d.y0})`);
+
+                // Append rectangles
+                nodeEnter.append("rect")
+                    .attr("class", "treemap-rect")
+                    .attr("width", d => d.x1 - d.x0)
+                    .attr("height", d => d.y1 - d.y0)
+                    .style("fill", d => colorScale(d.value));
+
+                // Append text labels
+                nodeEnter.append("text")
+                    .attr("class", "label")
+                    .attr("x", d => (d.x1 - d.x0) / 2)
+                    .attr("y", d => (d.y1 - d.y0) / 2)
+                    .text(d => `${d.data.name}: ${d.value}`)
+                    .call(wrapText, d => d.x1 - d.x0);
+
+                // Update positions of existing nodes
+                nodes.transition().duration(500)
+                    .attr("transform", d => `translate(${d.x0},${d.y0})`);
+
+                nodes.select("rect")
+                    .transition().duration(500)
+                    .attr("width", d => d.x1 - d.x0)
+                    .attr("height", d => d.y1 - d.y0)
+                    .style("fill", d => colorScale(d.value));
+
+                nodes.select(".label")
+                    .transition().duration(500)
+                    .attr("x", d => (d.x1 - d.x0) / 2)
+                    .attr("y", d => (d.y1 - d.y0) / 2)
+                    .text(d => `${d.data.name}: ${d.value}`)
+                    .call(wrapText, d => d.x1 - d.x0);
+
+                // Add hover tooltip
+                nodeEnter.append("title")
+                    .text(d => `${d.data.name}\nArticles: ${d.value}`);
+            }
+
+            // Initial render with the first available year
+            updateTreemap(years[0]);
+
+            // Update the treemap when year filter changes
+            yearFilter.on("change", () => {
+                const selectedYear = yearFilter.property("value");
+                updateTreemap(selectedYear);
+            });
+        });
+
+        // Function to wrap text within a given width
+        function wrapText(text, widthFunc) {
+            text.each(function (d) {
+                var text = d3.select(this),
+                    words = text.text().split(/\s+/).reverse(),
+                    width = widthFunc(d),
+                    line = [],
+                    lineNumber = 0,
+                    lineHeight = 1.1, // ems
+                    x = text.attr("x"),
+                    y = text.attr("y"),
+                    dy = 0,
+                    tspan = text.text(null).append("tspan").attr("x", x).attr("y", y);
+                var word;
+                while (word = words.pop()) {
+                    line.push(word);
+                    tspan.text(line.join(" "));
+                    if (tspan.node().getComputedTextLength() > width - 10) {
+                        line.pop();
+                        tspan.text(line.join(" "));
+                        line = [word];
+                        tspan = text.append("tspan")
+                            .attr("x", x)
+                            .attr("y", y)
+                            .attr("dy", ++lineNumber * lineHeight + "em")
+                            .text(word);
+                    }
+                }
+            });
+        }
+    </script>
+
+    <!-- D3.js Word Cloud Script -->
+    <script>
+        // Set dimensions based on container size
+        const wordcloudContainer = document.getElementById('wordcloud');
+        const wcWidth = wordcloudContainer.clientWidth;
+        const wcHeight = wordcloudContainer.clientHeight;
+        const colorScale = d3.scaleOrdinal(d3.schemeTableau10);
+
+        // Create SVG for word cloud
+        const wcSvg = d3.select("#wordcloud")
+            .append("svg")
+            .attr("width", wcWidth)
+            .attr("height", wcHeight)
+            .append("g")
+            .attr("transform", `translate(${wcWidth / 2}, ${wcHeight / 2})`);
+
+        // Load the CSV data
+        d3.csv("wordcloud_data.csv").then(data => {
+            // Convert numerical columns from strings to numbers
+            data.forEach(d => {
+                d['Growth Percentage'] = +d['Growth Percentage'];
+                d.Year = +d.Year;
+            });
+
+            // Extract and sort unique years for the dropdown
+            const wcYears = Array.from(new Set(data.map(d => d.Year))).sort((a, b) => a - b);
+            const wcYearFilter = d3.select("#wordcloud-year");
+            wcYears.forEach(year => {
+                wcYearFilter.append("option").text(year).attr("value", year);
+            });
+
+            // Function to update the word cloud based on selected year
+            function updateWordCloud(selectedYear) {
+                const filteredData = data.filter(d => d.Year == selectedYear);
+
+                // Define font size scale
+                const growthExtent = d3.extent(filteredData, d => d['Growth Percentage']);
+                const fontSizeScale = d3.scaleLinear()
+                    .domain(growthExtent)
+                    .range([20, 100]); // Adjust font size range as needed
+
+                const layout = d3.layout.cloud()
+                    .size([wcWidth, wcHeight])
+                    .words(filteredData.map(d => ({ text: d.Keyword, size: d['Growth Percentage'] })))
+                    .padding(5)
+                    .rotate(() => 0) // Set rotation to 0 for all words
+                    .fontSize(d => fontSizeScale(d.size))
+                    .on("end", draw);
+
+                layout.start();
+
+                function draw(words) {
+                    wcSvg.selectAll("*").remove();
+                    wcSvg.selectAll("text")
+                        .data(words)
+                        .enter().append("text")
+                        .style("font-size", d => `${d.size}px`)
+                        .style("fill", (d, i) => colorScale(i))
+                        .attr("text-anchor", "middle")
+                        .attr("transform", d => `translate(${d.x}, ${d.y}) rotate(${d.rotate})`)
+                        .text(d => d.text);
                 }
             }
+
+            // Initial render with the first available year
+            updateWordCloud(wcYears[0]);
+
+            // Update the word cloud when year filter changes
+            wcYearFilter.on("change", () => {
+                const selectedYear = wcYearFilter.property("value");
+                updateWordCloud(selectedYear);
+            });
+        }).catch(error => {
+            console.error('Error loading or parsing data:', error);
         });
     </script>
+
+    <!-- D3.js Line Chart Script -->
+    <script>
+        // Define margins and dimensions
+        const margin = { top: 50, right: 100, bottom: 50, left: 60 };
+        const lineChartContainer = document.getElementById('linechart');
+        const lcWidth = lineChartContainer.clientWidth - margin.left - margin.right;
+        const lcHeight = (lineChartContainer.clientHeight || 600) - margin.top - margin.bottom; // Default height if not set
+
+        // Create SVG for line chart
+        const lcSvg = d3.select("#linechart")
+            .append("svg")
+            .attr("width", lcWidth + margin.left + margin.right)
+            .attr("height", lcHeight + margin.top + margin.bottom)
+            .append("g")
+            .attr("transform", `translate(${margin.left}, ${margin.top})`);
+
+        const x = d3.scaleLinear().range([0, lcWidth]);
+        const y = d3.scaleLinear().range([lcHeight, 0]);
+
+        const colorMap = {
+            "Positive": "green",
+            "Neutral": "gray",
+            "Negative": "red"
+        };
+
+        const line = d3.line()
+            .x(d => x(d.year))
+            .y(d => y(d.percentage));
+
+        // Load the CSV data
+        d3.csv("nyt_sentiment_filtered.csv").then(rawData => {
+            // Convert Year to number
+            rawData.forEach(d => {
+                d.Year = +d.Year;
+                d.Sentiment = d.Sentiment.split(": ")[1]; // Extract sentiment value
+            });
+
+            // Preprocess data to calculate sentiment percentages by year and section
+            const data = [];
+            const nestedData = d3.rollup(
+                rawData,
+                v => v.length,
+                d => d.section_name,
+                d => d.Year,
+                d => d.Sentiment
+            );
+
+            // Prepare data for plotting
+            const sentiments = ["Positive", "Neutral", "Negative"];
+            const sections = Array.from(nestedData.keys()).sort();
+
+            const plotData = {};
+
+            sections.forEach(section => {
+                const yearsMap = nestedData.get(section);
+                const years = Array.from(yearsMap.keys()).sort();
+                plotData[section] = sentiments.map(sentiment => {
+                    return {
+                        sentiment: sentiment,
+                        values: years.map(year => {
+                            const sentimentsMap = yearsMap.get(year);
+                            const totalArticles = d3.sum(sentiments, s => sentimentsMap.get(s) || 0);
+                            const count = sentimentsMap.get(sentiment) || 0;
+                            return {
+                                year: year,
+                                percentage: totalArticles ? (count / totalArticles) * 100 : 0
+                            };
+                        })
+                    };
+                });
+            });
+
+            // Populate the section dropdown
+            const sectionSelect = d3.select("#sectionSelect");
+
+            sectionSelect.selectAll("option")
+                .data(sections)
+                .enter()
+                .append("option")
+                .text(d => d)
+                .attr("value", d => d);
+
+            x.domain([
+                d3.min(rawData, d => d.Year),
+                d3.max(rawData, d => d.Year)
+            ]);
+            y.domain([0, 100]); // Assuming percentages from 0 to 100
+
+            // Function to update the chart
+            const updateChart = section => {
+                const dataToPlot = plotData[section];
+
+                // Clear previous content
+                lcSvg.selectAll(".axis").remove();
+                lcSvg.selectAll(".line").remove();
+                lcSvg.selectAll(".legend").remove();
+
+                // Append X axis
+                lcSvg.append("g")
+                    .attr("class", "axis")
+                    .attr("transform", `translate(0,${lcHeight})`)
+                    .call(d3.axisBottom(x).tickFormat(d3.format("d")));
+
+                // Append Y axis
+                lcSvg.append("g")
+                    .attr("class", "axis")
+                    .call(d3.axisLeft(y));
+
+                // Add X axis label
+                lcSvg.append("text")
+                    .attr("class", "axis-label")
+                    .attr("x", lcWidth / 2)
+                    .attr("y", lcHeight + 40)
+                    .style("text-anchor", "middle")
+                    .text("Year");
+
+                // Add Y axis label
+                lcSvg.append("text")
+                    .attr("class", "axis-label")
+                    .attr("transform", "rotate(-90)")
+                    .attr("x", -lcHeight / 2)
+                    .attr("y", -50)
+                    .style("text-anchor", "middle")
+                    .text("Percentage (%)");
+
+                // Draw lines
+                lcSvg.selectAll(".line")
+                    .data(dataToPlot)
+                    .enter()
+                    .append("path")
+                    .attr("class", "line")
+                    .attr("d", d => line(d.values))
+                    .style("stroke", d => colorMap[d.sentiment])
+                    .style("fill", "none")
+                    .style("stroke-width", 2);
+
+                // Add legend
+                const legend = lcSvg.selectAll(".legend")
+                    .data(sentiments)
+                    .enter()
+                    .append("g")
+                    .attr("class", "legend")
+                    .attr("transform", (d, i) => `translate(${lcWidth - 90}, ${i * 25})`);
+
+                legend.append("rect")
+                    .attr("x", 0)
+                    .attr("y", 0)
+                    .attr("width", 18)
+                    .attr("height", 18)
+                    .style("fill", d => colorMap[d]);
+
+                legend.append("text")
+                    .attr("x", 25)
+                    .attr("y", 14)
+                    .text(d => d);
+            };
+
+            sectionSelect.on("change", function () {
+                const selectedSection = this.value;
+                updateChart(selectedSection);
+            });
+
+            // Initial render with the first available section
+            updateChart(sections[0]);
+        }).catch(error => {
+            console.error('Error loading or processing data:', error);
+        });
+    </script>
+
+    <!-- D3.js Stacked Bar Chart Script -->
+    <script>
+        // Define margins and dimensions
+        const sbMargin = { top: 50, right: 120, bottom: 100, left: 60 };
+        const sbContainer = document.getElementById('stackedbarchart');
+        const sbWidth = sbContainer.clientWidth - sbMargin.left - sbMargin.right;
+        const sbHeight = (sbContainer.clientHeight || 600) - sbMargin.top - sbMargin.bottom;
+
+        // Create SVG for stacked bar chart
+        const sbSvg = d3.select("#stackedbarchart")
+            .append("svg")
+            .attr("width", sbWidth + sbMargin.left + sbMargin.right)
+            .attr("height", sbHeight + sbMargin.top + sbMargin.bottom)
+            .append("g")
+            .attr("transform", `translate(${sbMargin.left}, ${sbMargin.top})`);
+
+        // Define color scale for sentiments
+        const sbColor = d3.scaleOrdinal()
+            .domain(["Positive", "Neutral", "Negative"])
+            .range(["green", "gray", "red"]);
+
+        // Load the CSV data
+        d3.csv("nyt_sentiment_filtered.csv").then(rawData => {
+            // Convert Year to number
+            rawData.forEach(d => {
+                d.Year = +d.Year;
+                d.Sentiment = d.Sentiment.split(": ")[1]; // Extract sentiment value
+            });
+
+            // Get the list of years
+            const years = Array.from(new Set(rawData.map(d => d.Year))).sort((a, b) => a - b);
+
+            // Populate the year dropdown
+            const yearSelect = d3.select("#yearSelect");
+            yearSelect.selectAll("option")
+                .data(years)
+                .enter()
+                .append("option")
+                .text(d => d)
+                .attr("value", d => d);
+
+            // Function to update the chart
+            const updateBarChart = selectedYear => {
+                // Filter data for the selected year
+                const yearData = rawData.filter(d => d.Year === +selectedYear);
+
+                // Aggregate data by section and sentiment
+                const nestedData = d3.rollup(
+                    yearData,
+                    v => v.length,
+                    d => d.section_name,
+                    d => d.Sentiment
+                );
+
+                // Prepare data in required format
+                const sections = Array.from(nestedData.keys());
+                const sentiments = ["Positive", "Neutral", "Negative"];
+
+                const data = sections.map(section => {
+                    const sentimentCounts = nestedData.get(section) || new Map();
+                    const total = d3.sum(sentiments, s => sentimentCounts.get(s) || 0);
+                    return {
+                        section: section,
+                        Positive: (sentimentCounts.get("Positive") || 0) / total * 100,
+                        Neutral: (sentimentCounts.get("Neutral") || 0) / total * 100,
+                        Negative: (sentimentCounts.get("Negative") || 0) / total * 100,
+                    };
+                });
+
+                // Sort sections alphabetically
+                data.sort((a, b) => a.section.localeCompare(b.section));
+
+                // Clear previous content
+                sbSvg.selectAll("*").remove();
+
+                // Set up scales
+                const x = d3.scaleBand()
+                    .domain(data.map(d => d.section))
+                    .range([0, sbWidth])
+                    .padding(0.2);
+
+                const y = d3.scaleLinear()
+                    .domain([0, 100])
+                    .range([sbHeight, 0]);
+
+                // Add X axis
+                sbSvg.append("g")
+                    .attr("transform", `translate(0, ${sbHeight})`)
+                    .call(d3.axisBottom(x))
+                    .selectAll("text")
+                    .attr("transform", "rotate(-45)")
+                    .style("text-anchor", "end");
+
+                // Add Y axis
+                sbSvg.append("g")
+                    .call(d3.axisLeft(y));
+
+                // Stack the data
+                const stackedData = d3.stack()
+                    .keys(sentiments)
+                    (data);
+
+                // Draw the bars
+                sbSvg.selectAll(".serie")
+                    .data(stackedData)
+                    .enter().append("g")
+                    .attr("class", "serie")
+                    .attr("fill", d => sbColor(d.key))
+                    .selectAll("rect")
+                    .data(d => d)
+                    .enter().append("rect")
+                    .attr("x", d => x(d.data.section))
+                    .attr("y", d => y(d[1]))
+                    .attr("height", d => y(d[0]) - y(d[1]))
+                    .attr("width", x.bandwidth())
+                    .append("title")
+                    .text(function(d) {
+                        const sentiment = this.parentNode.__data__.key;
+                        const percentage = (d[1] - d[0]).toFixed(2);
+                        return `${d.data.section}\n${sentiment}: ${percentage}%`;
+                    });
+
+                // Add Y axis label
+                sbSvg.append("text")
+                    .attr("class", "axis-label")
+                    .attr("transform", "rotate(-90)")
+                    .attr("x", -sbHeight / 2)
+                    .attr("y", -50)
+                    .style("text-anchor", "middle")
+                    .text("Percentage (%)");
+
+                // Add legend
+                const legend = sbSvg.selectAll(".legend")
+                    .data(sentiments)
+                    .enter().append("g")
+                    .attr("class", "legend")
+                    .attr("transform", (d, i) => `translate(${sbWidth + 10}, ${i * 25})`);
+
+                legend.append("rect")
+                    .attr("x", 0)
+                    .attr("y", 0)
+                    .attr("width", 18)
+                    .attr("height", 18)
+                    .style("fill", sbColor);
+
+                legend.append("text")
+                    .attr("x", 25)
+                    .attr("y", 14)
+                    .style("text-anchor", "start")
+                    .text(d => d);
+            };
+
+            // Initial render with the first available year
+            updateBarChart(years[0]);
+
+            // Update chart when year changes
+            yearSelect.on("change", function () {
+                const selectedYear = this.value;
+                updateBarChart(selectedYear);
+            });
+        }).catch(error => {
+            console.error('Error loading or processing data:', error);
+        });
+    </script>
+
 </body>
 
 </html>
