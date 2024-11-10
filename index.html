@@ -186,7 +186,7 @@
             .attr("height", height);
 
         // Load the CSV data
-        d3.csv("treemap2000-11.csv").then(data => {
+        d3.csv("data/treemap2000-11.csv").then(data => {
             // Convert numerical columns from strings to numbers
             data.forEach(d => {
                 d['Count of nyt-metadata-cleaned-3.csv'] = +d['Count of nyt-metadata-cleaned-3.csv'];
@@ -332,7 +332,7 @@
             .attr("transform", `translate(${wcWidth / 2}, ${wcHeight / 2})`);
 
         // Load the CSV data
-        d3.csv("wordcloud_data.csv").then(data => {
+        d3.csv("data/wordcloud_data.csv").then(data => {
             // Convert numerical columns from strings to numbers
             data.forEach(d => {
                 d['Growth Percentage'] = +d['Growth Percentage'];
@@ -422,7 +422,7 @@
             .y(d => y(d.percentage));
 
         // Load the CSV data
-        d3.csv("nyt_sentiment_filtered.csv").then(rawData => {
+        d3.csv("data/nyt_sentiment_filtered.csv").then(rawData => {
             // Convert Year to number
             rawData.forEach(d => {
                 d.Year = +d.Year;
@@ -583,7 +583,7 @@
             .range(["green", "gray", "red"]);
 
         // Load the CSV data
-        d3.csv("nyt_sentiment_filtered.csv").then(rawData => {
+        d3.csv("data/nyt_sentiment_filtered.csv").then(rawData => {
             // Convert Year to number
             rawData.forEach(d => {
                 d.Year = +d.Year;
@@ -629,7 +629,7 @@
                         Negative: (sentimentCounts.get("Negative") || 0) / total * 100,
                     };
                 });
-                
+
                 // Sort sections alphabetically
                 data.sort((a, b) => a.section.localeCompare(b.section));
 
