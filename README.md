@@ -76,7 +76,7 @@ Using a dataset of NYT articles from 2000 to 2023, we analyze trends in sentimen
 
 ---
 
-## Visualizations Using Tableau
+## Visualizations Using D3.js
 
 ### 1. Keyword Frequency
 To visualize changes in keyword frequency over time, we created an interactive bubble diagram where the bubble size represents the year-over-year percentage change. The top 10 keywords with the highest jumps are displayed. For instance, users can see how the keyword "Iran" changes in frequency between 2002 and 2003.
