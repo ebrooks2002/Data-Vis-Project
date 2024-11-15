@@ -80,9 +80,27 @@ body {
     padding: 5px 10px;
 }
 
-#treemap,
-#wordcloud,
-#linechart,
+#treemap {
+    width: 100%;
+    height: 600px;
+    margin: 0 auto;
+    border: 1px solid #ddd;
+}
+
+#wordcloud {
+    width: 100%;
+    height: 600px;
+    margin: 0 auto;
+    border: 1px solid #ddd;
+}
+
+#linechart {
+    width: 100%;
+    height: 600px;
+    margin: 0 auto;
+    border: 1px solid #ddd;
+}
+
 #stackedbarchart {
     width: 100%;
     height: 600px;
