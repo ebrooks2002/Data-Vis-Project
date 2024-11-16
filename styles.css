@@ -104,11 +104,33 @@ body {
     padding: 5px 10px;
 }
 
+.wordcloudwrapper {
+    display: flex;
+    align-items: flex-start;
+    gap: 20px; /* Space between treemap and text */
+    margin-top: 20px; /* Optional: Space above the wrapper */
+}
+
 #wordcloud {
-    width: 100%;
+    width: 60%;
     height: 600px;
     margin: 0 auto;
-    border: 1px solid #ddd;
+    overflow: hidden;
+}
+
+.wordcloudwrapper p {
+    flex: 1 1 40%; /* Occupies 40% of the container */
+    font-size: 1em;
+    line-height: 0.5;
+    color: #333;
+    text-align: left; /* Align text to the left for readability */
+}
+
+.linechartwrapper {
+    display: flex;
+    align-items: flex-start;
+    gap: 20px; /* Space between treemap and text */
+    margin-top: 20px; /* Optional: Space above the wrapper */
 }
 
 #linechart {
@@ -118,11 +140,35 @@ body {
     border: 1px solid #ddd;
 }
 
+.linechartwrapper p {
+    flex: 1 1 30%; /* Occupies 40% of the container */
+    font-size: 1em;
+    line-height: 0.5;
+    color: #333;
+    text-align: left; /* Align text to the left for readability */
+}
+
+.stackedbarchartwrapper {
+    display: flex;
+    align-items: flex-start;
+    gap: 20px; /* Space between treemap and text */
+    margin-top: 20px; /* Optional: Space above the wrapper */
+}
+
 #stackedbarchart {
-    width: 100%;
+    width: 90%;
     height: 600px;
     margin: 0 auto;
     border: 1px solid #ddd;
+}
+
+.stackedbarchartwrapper p {
+    flex: 1 1 45%; /* Occupies 40% of the container */
+    font-size: 1em;
+    line-height: 0.5;
+    max-width: 400px;
+    color: #333;
+    text-align: left; /* Align text to the left for readability */
 }
 
 .treemap-rect {
