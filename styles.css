@@ -62,9 +62,33 @@ body {
     color: #2e2929;
 }
 
+
+.treemapwrapper {
+    display: flex;
+    align-items: flex-start;
+    gap: 20px; /* Space between treemap and text */
+    margin-top: 20px; /* Optional: Space above the wrapper */
+}
+
+#treemap {
+    flex: 1 1 70%; /* Occupies 60% of the container */
+    height: 400px; /* Adjust height as needed */
+    border: 1px solid #ddd;
+}
+
+/* Paragraph Styles within Flex Container */
+.treemapwrapper p {
+    flex: 1 1 40%; /* Occupies 40% of the container */
+    font-size: 1em;
+    line-height: 0.5;
+    color: #333;
+    text-align: left; /* Align text to the left for readability */
+}
+
 .year-selector,
 .selector-container {
     margin-bottom: 20px;
+    text-align: left;
 }
 
 .year-selector label,
@@ -78,13 +102,6 @@ body {
 .selector-container select {
     font-size: 1em;
     padding: 5px 10px;
-}
-
-#treemap {
-    width: 100%;
-    height: 600px;
-    margin: 0 auto;
-    border: 1px solid #ddd;
 }
 
 #wordcloud {
@@ -138,7 +155,7 @@ body {
 
 .content-container p {
     font-size: 1.1em;
-    line-height: 1.6;
+    line-height: 1.1;
     color: #555;
     margin-top: 40px;
 }
