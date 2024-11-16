@@ -1,4 +1,3 @@
-
 // Set dimensions based on container size
  const wordcloudContainer = document.getElementById('wordcloud');
  const wcWidth = wordcloudContainer.clientWidth;
@@ -36,7 +35,7 @@
          const growthExtent = d3.extent(filteredData, d => d['Growth Percentage']);
          const fontSizeScale = d3.scaleLinear()
              .domain(growthExtent)
-             .range([20, 100]); // Adjust font size range as needed
+             .range([20, 50]); // Adjust font size range as needed
 
          const layout = d3.layout.cloud()
              .size([wcWidth, wcHeight])
