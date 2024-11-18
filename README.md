@@ -1,7 +1,7 @@
 # COMP 435 Data Visualization Final Project
 
-### Visit the Project
-[Data-Vis-Project on GitHub Pages](https://ebrooks2002.github.io/Data-Vis-Project/)
+### Visit the Website:
+[Interactive Article](https://ebrooks2002.github.io/Data-Vis-Project/)
 
 ---
 
