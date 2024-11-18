@@ -15,7 +15,7 @@
   // Define color scale for sentiments
   const sbColor = d3.scaleOrdinal()
       .domain(["Positive", "Neutral", "Negative"])
-      .range(["green", "gray", "red"]);
+      .range(["#03C03C", "#A6A6A6", "#FF333D"]);
 
   // Load the CSV data
   d3.csv("data/nyt_sentiment_filtered.csv").then(rawData => {
