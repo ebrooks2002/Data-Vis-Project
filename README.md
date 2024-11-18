@@ -6,7 +6,7 @@
 ---
 
 ## Project Motivation
-The New York Times (NYT) is the second-largest grossing news source in the United States and one of the most highly regarded news organizations globally. News has a unique relationship with the consumer—it both defines and follows societal trends. For example, consider the current Israel and Palestine conflict. Without news, this conflict would not be as widely discussed by the public and behind closed federal doors the way it is today. In other cases, certain topics remain relevant only due to ongoing media coverage, such as social identities like the Kardashians, which stay in the public eye largely through continued interest in the news. By analyzing patterns in NYT articles, we can gain insight into societal shifts, cultural changes, and how media and journalism have evolved through the 21st century.
+The New York Times (NYT) is the second-largest grossing news source in the U.S. and a highly regarded news source globally.t serves as a rich source for analyzing media trends and journalistic evolution in the 21st century. Our project aims to uncover trends in editorial foucs, topic prominence, and article sentiment, through a series of visualizations. Utilizing a treemap, we show the distribution of articles across various NYT sections annually, identifying which sections dominate over time. The word cloud highlights the most frequently used keywords each year, summarizing what the hottest topics were in the recent past. Through a line chart, we track sentiment trends across different sections, revealing whether the tone of coverage becomes more positive, negative, or neutral in response to significant events. Last, the stacked bar chart breaks down sentiment categories within each section for selected years, showing how sections differ in tone. 
 
 ---
 
@@ -79,23 +79,25 @@ Using a dataset of NYT articles from 2000 to 2023, we analyze trends in sentimen
 ## Visualizations Using D3.js
 
 ### 1. Keyword Frequency
-To visualize changes in keyword frequency over time, we created an interactive bubble diagram where the bubble size represents the year-over-year percentage change. The top 10 keywords with the highest jumps are displayed. For instance, users can see how the keyword "Iran" changes in frequency between 2002 and 2003.
+To visualize changes in keyword frequency over time, we created an interactive word cloud where the word size represents the year-over-year percentage change. The top 10 keywords with the highest jumps are displayed. 
 
-![Keyword Frequency Visualization](https://github.com/user-attachments/assets/364b4f95-9228-40be-963c-d746a17a767c)
+<img width="603" alt="Screen Shot 2024-11-18 at 12 47 34 PM" src="https://github.com/user-attachments/assets/e0e75d49-4b80-4cf6-a568-f19280607f62">
 
 ### 2. Topic Popularity
-Next, we examine changes in topic popularity over time. Each NYT article belongs to a specific category, which allows us to use a stacked line chart to show category trends. Users can explore how the average number of "Sports" or "Politics" articles published annually has changed since 2000
+Next, we examine changes in topic popularity over time. Each NYTs article belongs to a specific category, which allows us to use a stacked line chart to show category trends. Users can explore how the average number of "Sports" or "Politics" articles published annually has changed since 2000.
 
-![Topic Popularity Visualization](https://github.com/user-attachments/assets/19539bc8-5514-4822-b75a-deb701df5d48)
+<img width="654" alt="Screen Shot 2024-11-18 at 12 51 12 PM" src="https://github.com/user-attachments/assets/8de0188b-c15e-4ad0-acd8-ba0140c1e13b">
 
 ### 3. Sentiment Analysis
 Finally, we performed sentiment analysis on each article's abstract, categorizing them as positive, negative, or neutral. This analysis helps us answer questions such as: Does the overall tone of NYT articles shift in response to positive or negative current events?
 
-#### Sentiment Changes Over Time:
-![Sentiment Over Time](https://github.com/user-attachments/assets/f62da9b8-cb7d-4b61-a5bd-d9e3e7cef0a8)
-
 #### Sentiment Differences Across Topics:
-![Sentiment by Topic](https://github.com/user-attachments/assets/09da3c19-9d6c-411f-a8b5-11e764159c7b)
+
+<img width="634" alt="Screen Shot 2024-11-18 at 12 52 12 PM" src="https://github.com/user-attachments/assets/0066f75b-e2bb-4d10-b01a-adbe09d09178">
+
+#### Sentiment Changes Over Time:
+
+<img width="756" alt="Screen Shot 2024-11-18 at 12 53 21 PM" src="https://github.com/user-attachments/assets/10971089-0d4b-47c4-9990-6c62f2fad7ab">
 
 --- 
 
