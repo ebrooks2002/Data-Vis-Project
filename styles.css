@@ -57,7 +57,7 @@ body {
 
 .content-container h2 {
     font-family: 'Playfair Display SC';
-    font-size: 2.5em;
+    font-size: 1.5em;
     margin-bottom: 20px;
     color: #2e2929;
 }
@@ -80,7 +80,7 @@ body {
 .treemapwrapper p {
     flex: 1 1 40%; /* Occupies 40% of the container */
     font-size: 1em;
-    line-height: 0.5;
+    line-height: 1.4;
     color: #333;
     text-align: left; /* Align text to the left for readability */
 }
@@ -121,7 +121,7 @@ body {
 .wordcloudwrapper p {
     flex: 1 1 40%; /* Occupies 40% of the container */
     font-size: 1em;
-    line-height: 0.5;
+    line-height: 1.4;
     color: #333;
     text-align: left; /* Align text to the left for readability */
 }
@@ -134,16 +134,15 @@ body {
 }
 
 #linechart {
-    width: 100%;
-    height: 600px;
+    width: 80%;
+    height: 500px;
     margin: 0 auto;
-    border: 1px solid #ddd;
 }
 
 .linechartwrapper p {
     flex: 1 1 30%; /* Occupies 40% of the container */
     font-size: 1em;
-    line-height: 0.5;
+    line-height: 1.4;
     color: #333;
     text-align: left; /* Align text to the left for readability */
 }
@@ -152,20 +151,17 @@ body {
     display: flex;
     align-items: flex-start;
     gap: 20px; /* Space between treemap and text */
-    margin-top: 20px; /* Optional: Space above the wrapper */
 }
 
 #stackedbarchart {
-    width: 90%;
+    width: 80%;
     height: 600px;
     margin: 0 auto;
-    border: 1px solid #ddd;
 }
 
 .stackedbarchartwrapper p {
-    flex: 1 1 45%; /* Occupies 40% of the container */
-    font-size: 1em;
-    line-height: 0.5;
+    flex: 1 1 50%; /* Occupies 40% of the container */
+    line-height: 1.4;
     max-width: 400px;
     color: #333;
     text-align: left; /* Align text to the left for readability */
@@ -197,13 +193,6 @@ body {
     fill: rgb(0, 0, 0);
     text-anchor: middle;
     pointer-events: none;
-}
-
-.content-container p {
-    font-size: 1.1em;
-    line-height: 1.1;
-    color: #555;
-    margin-top: 40px;
 }
 
 /* Axis Labels */

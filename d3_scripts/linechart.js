@@ -16,9 +16,9 @@
  const y = d3.scaleLinear().range([lcHeight, 0]);
 
  const colorMap = {
-     "Positive": "green",
-     "Neutral": "gray",
-     "Negative": "red"
+     "Positive": "#03C03C",
+     "Neutral": "grey",
+     "Negative": "#FF333D"
  };
 
  const line = d3.line()
@@ -130,7 +130,7 @@
              .attr("d", d => line(d.values))
              .style("stroke", d => colorMap[d.sentiment])
              .style("fill", "none")
-             .style("stroke-width", 2);
+             .style("stroke-width", 2.5);
 
          // Add legend
          const legend = lcSvg.selectAll(".legend")
