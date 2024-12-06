@@ -3,7 +3,6 @@ import re
 import collections
  # *** Make take a few minutes to run this script ***
 
-# Replace 'your_file.csv' with the path to your CSV file
 file_path = 'nyt-metadata-keywords.csv'
 
 # Read the CSV file into a DataFrame
@@ -41,5 +40,3 @@ for year, year_dict in yearly_keyword_counts.items():
         print(f"  Keyword: {keyword}, Count: {count}")
     print('-----')
 
-# Print the shape of the DataFrame
-print(df.shape)
