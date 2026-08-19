@@ -1,7 +1,7 @@
 # COMP 435 Data Visualization Final Project
 
 ### Visit the Website:
-[Interactive Article]((https://ebrooks2002.github.io/NYT-DataViz/))
+https://ebrooks2002.github.io/NYT-DataViz/
 
 ---
 
